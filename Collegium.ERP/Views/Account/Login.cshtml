@@ -1,0 +1,158 @@
+﻿@model TP3.Core.Data.Account.LoginData
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<!-- begin::Head -->
+<head>
+
+    <meta charset="utf-8" />
+
+    <title>Edu-Net</title>
+    <meta name="description" content="Login page example">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--begin::Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">        <!--end::Fonts -->
+    <!--begin::Page Custom Styles(used by this page) -->
+    <link href="~/css/login/login.min.css" rel="stylesheet" type="text/css" />
+    <!--end::Page Custom Styles -->
+    <!--begin:: Global Mandatory Vendors -->
+    <link href="~/css/layout/perfectScrollbar/perfect-scrollbar.min.rtl.css" rel="stylesheet" type="text/css" />
+    <!--end:: Global Mandatory Vendors -->
+    <!--begin::Global Theme Styles(used by all pages) -->
+
+    <link href="~/css/layout/style.bundle.min.css" rel="stylesheet" type="text/css" />
+    <!--end::Global Theme Styles -->
+    <!--begin::Layout Skins(used by all pages) -->
+    <link href="~/css/layout/header/light.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/layout/menu/light.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/layout/brand/light.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/layout/aside/light.min.css" rel="stylesheet" type="text/css" />
+    <!--end::Layout Skins -->
+
+    <link rel="shortcut icon" href="~/images/logo/favicon.ico" />
+</head>
+<!-- end::Head -->
+<!-- begin::Body -->
+<body style="background-color:white" class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-aside--enabled kt-aside--fixed kt-aside--minimize kt-page--loading">
+
+    <div class="kt-grid kt-grid--ver kt-grid--root kt-page">
+        <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v5 kt-login--signin" id="kt_login">
+            <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile" style="background-image: url(/images/background/bg.jpg);">
+                <div class="kt-login__left">
+                    <div class="kt-login__wrapper">
+                        <div class="kt-login__content">
+                            <a class="kt-login__logo" href="#">
+                                <img src="~/images/logo/logo.png">
+                            </a>
+                            <h3 class="kt-login__title"> Ingrese el código para inicar un desafio</h3>
+                            <div class="kt-login__actions">
+                                <a id="kt_login_signup" asp-action="Index" asp-controller="ChallengeCode" class="btn btn-outline-brand btn-pill">Soy Alumno y tengo un código</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kt-login__divider"><div></div></div>
+
+                <div class="kt-login__right">
+                    <div class="kt-login__wrapper">
+                        <div class="kt-login__signin">
+                            <div class="kt-login__head">
+                                <h3 class="kt-login__title">Inicie sesion</h3>
+                            </div>
+                            <div class="kt-login__form">
+                                <form class="kt-form" method="post" asp-action="Login" asp-controller="Account">
+                                    <div class="form-group">
+                                        <input asp-for="Email" class="form-control" type="text" placeholder="Mail" autocomplete="off">
+                                        <span asp-validation-for="Email" class="invalid-feedback"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input asp-for="Password" class="form-control" type="text" placeholder="Contraseña" autocomplete="off">
+                                        <span asp-validation-for="Password" class="invalid-feedback"></span>
+                                    </div>
+
+                                    <div class="kt-login__actions">
+                                        <button id="kt_login_signin_submit" class="btn btn-brand btn-pill btn-elevate">Ingresar</button>
+                                    </div>
+
+                                </form>
+                                <div class="kt-login__account">
+                                    <span class="kt-login__account-msg">
+                                        ¿Sos docente y no tenes cuenta todavia?
+                                    </span>&nbsp;&nbsp;
+                                    <a href="javascript:;" onclick="displaySignUpForm()" id="kt_login_signup" class="kt-login__account-link">Registrate!</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="kt-login__signup" style="display:none">
+                            <div class="kt-login__head">
+                                <h3 class="kt-login__title">Registrate</h3>
+                            </div>
+                            <div class="kt-login__form">
+                                <form class="kt-form" asp-action="Create" asp-controller="User" method="post" >
+                                    <div class="form-group">
+                                        <input asp-for="Name" class="form-control" type="text" placeholder="Nombre" autocomplete="off">
+                                        <span asp-validation-for="Name" class="invalid-feedback"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input asp-for="Email" class="form-control" type="text" placeholder="Mail" autocomplete="off">
+                                        <span asp-validation-for="Email" class="invalid-feedback"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input asp-for="Password" class="form-control" type="text" placeholder="Contraseña" autocomplete="off">
+                                        <span asp-validation-for="Password" class="invalid-feedback"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input asp-for="RepeatPassword" class="form-control" type="text" placeholder="Repetir contraseña" autocomplete="off">
+                                        <span asp-validation-for="RepeatPassword" class="invalid-feedback"></span>
+                                    </div>
+                                    <div class="kt-login__actions">
+                                        <button id="kt_login_signup_submit" class="btn btn-brand btn-pill btn-elevate">Registrarme</button>
+                                        <button id="kt_login_signup_cancel" type="button" onclick="displaySignInForm()" class="btn btn-outline-brand btn-pill">Cancelar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end:: Page -->
+    <!-- begin::Global Config(global config for global JS sciprts) -->
+    <script>
+        var KTAppOptions = { "colors": { "state": { "brand": "#5d78ff", "dark": "#282a3c", "light": "#ffffff", "primary": "#5867dd", "success": "#34bfa3", "info": "#36a3f7", "warning": "#ffb822", "danger": "#fd3995" }, "base": { "label": ["#c5cbe3", "#a1a8c3", "#3d4465", "#3e4466"], "shape": ["#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a"] } } };
+    </script>
+    <!-- end::Global Config -->
+    <!--begin:: Global Mandatory Vendors -->
+    <script src="~/js/layout/jquery.min.js" type="text/javascript"></script>
+    <script src="~/js/layout/popper.min.js" type="text/javascript"></script>
+    <script src="~/js/layout/bootstrap.min.js" type="text/javascript"></script>
+    <script src="~/js/layout/js.cookie.js" type="text/javascript"></script>
+    <script src="~/js/layout/moment.min.js" type="text/javascript"></script>
+    <script src="~/js/layout/tooltip.min.js" type="text/javascript"></script>
+    <script src="~/js/layout/perfect-scrollbar.min.js" type="text/javascript"></script>
+    <script src="~/js/layout/sticky.min.js" type="text/javascript"></script>
+    <script src="~/js/layout/wNumb.js" type="text/javascript"></script>
+    <!--end:: Global Mandatory Vendors -->
+    <!--begin::Global Theme Bundle(used by all pages) -->
+    <script src="~/js/layout/scripts.bundle.min.js" type="text/javascript"></script>
+    <!--end::Global Theme Bundle -->
+    <!--begin::Login page -->
+    <script src="~/js/login/login.js" type="text/javascript"></script>
+    <!--end::Login page -->
+    <!--begin::Jquery validate -->
+    @*<script src="~/js/layout/jqueryValidate/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="~/js/layout/jqueryValidate/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+    <script src="~/js/layout/jqueryValidate/localization/messages_es_AR.min.js" type="text/javascript"></script>*@
+
+    <!--end::Jquery validate -->
+</body>
+<!-- end::Body -->
+</html>

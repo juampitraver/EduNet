@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20190826230012_addMenuTable.cs" />
+    <Compile Remove="Migrations\20190826230012_addMenuTable.Designer.cs" />
+    <Compile Remove="Migrations\20190827201801_test.cs" />
+    <Compile Remove="Migrations\20190827201801_test.Designer.cs" />
+    <Compile Remove="Migrations\20190925195255_AddPartDrawingStructure.cs" />
+    <Compile Remove="Migrations\20190925195255_AddPartDrawingStructure.Designer.cs" />
+    <Compile Remove="Migrations\20191031221022_test.cs" />
+    <Compile Remove="Migrations\20191031221022_test.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Collegium.Domain\TP3.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

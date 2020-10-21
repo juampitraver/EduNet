@@ -1,0 +1,55 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es-ar">
+<!-- begin::Head -->
+<head>
+
+
+    <meta charset="utf-8" />
+
+    <title>Pedro Giacomelli</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--begin::Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">
+    <!--end::Fonts -->
+    <!--begin::Global Theme Styles(used by all pages) -->
+    <link href="~/css/layout/style.bundle.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/error/error.min.css" rel="stylesheet" type="text/css" />
+    <!--end::Global Theme Styles -->
+
+
+    <link rel="shortcut icon" href="~/images/logo/favicon.ico" />
+</head>
+<!-- end::Head -->
+<!-- begin::Body -->
+<body class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--fixed kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
+
+
+    <!-- begin:: Page -->
+    <div class="kt-grid kt-grid--ver kt-grid--root">
+        <div class="kt-grid__item kt-grid__item--fluid kt-grid  kt-error-v5" style="background-image: url('@Url.Content("~/images/error/error.jpg")');">
+            <div class="kt-error_container">
+                <span class="kt-error_title">
+                    <h1>Oops!</h1>
+                </span>
+                <p class="kt-error_subtitle">
+                    Algo salió mal
+                </p>
+                <p class="kt-error_description">
+                    <a asp-action="Index"  asp-controller="Home" class="btn btn-success btn-wide">INICIO</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- end:: Page -->
+
+
+
+</body>
+<!-- end::Body -->
+</html>
