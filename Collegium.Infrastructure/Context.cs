@@ -8,7 +8,7 @@ namespace TP3.Infrastructure
 
         public Context(DbContextOptions<Context> options) : base(options)
         {
-
+            
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
