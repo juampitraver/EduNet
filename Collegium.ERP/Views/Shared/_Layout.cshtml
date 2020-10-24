@@ -1,16 +1,12 @@
 ﻿@inject TP3.Core.Interfaces.IAuthorizationService authorizationService
-
 <!DOCTYPE html>
 <html lang="es">
 <!-- begin::Head -->
 <head>
-
     <meta charset="utf-8" />
-
     <title>Edu-Net</title>
     <meta name="description" content="Layout without header  menu">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link href="~/css/select2/select2.min.css" rel="stylesheet" type="text/css" />
     <!--begin::Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">
@@ -36,8 +32,6 @@
     <link rel="shortcut icon" href="~/images/logo/favicon.ico" />
 </head>
 <body class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-aside--enabled kt-aside--fixed kt-aside--minimize kt-page--loading">
-
-
     <!-- begin:: Page -->
     <!-- begin:: Header Mobile -->
     <div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
@@ -48,7 +42,6 @@
         </div>
         <div class="kt-header-mobile__toolbar">
             <button class="kt-header-mobile__toolbar-toggler kt-header-mobile__toolbar-toggler--left" id="kt_aside_mobile_toggler"><span></span></button>
-
             <button class="kt-header-mobile__toolbar-toggler" id="kt_header_mobile_toggler"><span></span></button>
             <button class="kt-header-mobile__toolbar-topbar-toggler" id="kt_header_mobile_topbar_toggler"><i class="flaticon-more"></i></button>
         </div>
@@ -79,9 +72,7 @@
                 <!-- begin:: Header -->
                 <div id="kt_header" class="kt-header kt-grid kt-grid--ver  kt-header--fixed ">
                     <!-- begin: Header Menu -->
-
                     <div class="kt-header-menu-wrapper kt-grid__item kt-grid__item--fluid" id="kt_header_menu_wrapper">
-
                     </div>
                     <!-- end: Header Menu -->
                     <!-- begin:: Header Topbar -->
@@ -96,7 +87,6 @@
                             <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px,0px">
 
                             </div>
-
                         </div>
                         <!--end: Notifications -->
                         <!--begin: Quick actions -->
@@ -104,7 +94,6 @@
                             <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px,0px">
 
                             </div>
-
                         </div>
                         <!--end: Quick actions -->
                         <!--begin: Cart -->
@@ -112,7 +101,6 @@
                             <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px,0px">
 
                             </div>
-
                         </div>
                         <!--end: Cart-->
                         <!--begin: User bar -->
@@ -129,54 +117,43 @@
                                     <!--begin: Head -->
                                     <div class="kt-user-card kt-user-card--skin-light kt-notification-item-padding-x">
                                         <div class="kt-user-card__avatar">
-
                                             <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
                                             <span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold kt-hidden">S</span>
                                         </div>
                                         <div class="kt-user-card__name">
                                             @User.Identity.Name
                                         </div>
-
                                     </div>
                                     <!--end: Head -->
                                     <!--begin: Navigation -->
                                     <div class="kt-notification">
-
                                         <div class="kt-notification__custom kt-space-between">
-                                            <a asp-action="Logout" asp-controller="Account"  class="btn btn-label btn-label-brand btn-sm btn-bold">Cerrar Sesion</a>
-
-
+                                            <a asp-action="Logout" asp-controller="Account"  class="btn btn-label btn-label-brand btn-sm btn-bold">Cerrar Sesión</a>
                                         </div>
                                     </div>
                                     <!--end: Navigation -->
                                 </div>
                             </div>
                         }
-
                         <!--end: User bar -->
-
                     </div>
                     <!-- end:: Header Topbar -->
                 </div>
                 <!-- end:: Header -->
                 <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
-
-
                     <!-- begin:: Content -->
                     <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
                         @RenderBody()
                     </div>
                     <!-- end:: Content -->
                 </div>
-
                 <!-- begin:: Footer -->
                 <div class="kt-footer  kt-grid__item kt-grid kt-grid--desktop kt-grid--ver-desktop" id="kt_footer">
                     <div class="kt-container  kt-container--fluid ">
                         <div class="kt-footer__copyright">
-                            2020&nbsp;&copy;&nbsp;<a href="#" target="_blank" class="kt-link">Tecnologia Educativa</a>
+                            2020&nbsp;&copy;&nbsp;<a href="#" target="_blank" class="kt-link">Tecnología Educativa</a>
                         </div>
                         <div class="kt-footer__menu">
-
                         </div>
                     </div>
                 </div>
@@ -184,7 +161,6 @@
             </div>
         </div>
     </div>
-
     <!-- end:: Page -->
     <!-- begin::Global Config(global config for global JS sciprts) -->
     <script>
@@ -194,8 +170,6 @@
     <!-- end::Head -->
     <!-- begin::Body -->
     <!--<body class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--fixed kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
-
-
         <!-- begin:: Page -->
     <!-- begin:: Header Mobile -->
     <!--<div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
@@ -206,8 +180,6 @@
         </div>
         <div class="kt-header-mobile__toolbar">
             <button class="kt-header-mobile__toggler kt-header-mobile__toggler--left" id="kt_aside_mobile_toggler"><span></span></button>
-
-
             <button class="kt-header-mobile__topbar-toggler" id="kt_header_mobile_topbar_toggler"><i class="flaticon-more"></i></button>
         </div>
     </div>-->
@@ -226,7 +198,6 @@
                 <img alt="Logo" src="~/images/logo/logo-light.png" width="100%" />
             </a>
         </div>
-
         <div class="kt-aside__brand-tools">
             <button class="kt-aside__brand-aside-toggler" id="kt_aside_toggler">
                 <span>
@@ -295,7 +266,6 @@
     <!--end: Head -->
     <!--begin: Navigation -->
     <!--<div class="kt-notification">
-
         <div class="kt-notification__custom kt-space-between kt-pull-left">
             <a asp-action="ChangePassword" asp-controller="User" class="btn btn-label btn-label-brand btn-sm btn-bold">Cambiar Contraseña</a>
         </div>
@@ -317,8 +287,6 @@
     <!--<div class="kt-subheader   kt-grid__item" id="kt_subheader">
         <div class="kt-container  kt-container--fluid ">
             <div class="kt-subheader__main">
-
-
             </div>
             <div class="kt-subheader__toolbar">
                 <div class="kt-subheader__wrapper">
@@ -326,10 +294,7 @@
                         <span class="kt-subheader__btn-daterange-title" id="kt_dashboard_daterangepicker_title">Hoy:</span>&nbsp;
                         <span class="kt-subheader__btn-daterange-date" id="kt_dashboard_daterangepicker_date">@DateTime.Now.Day de @DateTime.Now.ToString("MMMM") </span>
                         <i class="flaticon2-calendar-1"></i>
-
                     </a>
-
-
                 </div>
             </div>
         </div>
@@ -356,8 +321,6 @@
                 @DateTime.Now.Year&nbsp;&copy;&nbsp;<a href="http://Kdos.com.ar" target="_blank" class="kt-link">Kdos</a>
             </div>
             <div class="kt-footer__menu">
-
-
             </div>
         </div>
     </div>-->
@@ -388,7 +351,6 @@
     <script src="~/js/layout/jqueryValidate/localization/messages_es_AR.min.js" type="text/javascript"></script>
     <!--end::Jquery validate -->
     <!--begin::CRUD notification -->
-
     <script>
         toastr.options = {
             "closeButton": false,
@@ -412,7 +374,6 @@
             var response = TempData.Get<TP3.Core.Data.BaseData.ResponseData>("RESPONSE");
             <text>
                 var message = "@response.Message";
-
             </text>
             if (response.Result)
             {
@@ -426,9 +387,7 @@
                 toastr.error(message);
                  </text>
             }
-
         }
-
     </script>
     <script>
         $(document).ready(function () {
@@ -446,8 +405,6 @@
                 $(this).attr('autocomplete', 'off');
             });
         }
-
-
     </script>
     <!--end::CRUD notification -->
     @RenderSection("Scripts", required: false)

@@ -35,7 +35,6 @@ namespace TP3.ERP
             // Add the temp data provider
             services.AddSession();
             services.AddSingleton<ITempDataProvider, CookieTempDataProvider>();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,7 +44,6 @@ namespace TP3.ERP
             {
                 DefaultRequestCulture = new RequestCulture("es-AR")
             });
-
            
             if (env.IsDevelopment())
             {

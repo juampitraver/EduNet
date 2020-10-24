@@ -1,5 +1,4 @@
-﻿
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using TP3.Core.Implementations;
 using TP3.Core.Interfaces;
@@ -13,18 +12,22 @@ namespace TP3.ERP
     {
         public static void AddIoc(this IServiceCollection iocService, string conectionString)
         {
-
             iocService.AddDbContext<Context>(options => options.UseSqlServer(conectionString));
+
             #region Services
+
             iocService.AddTransient<IAccountService, AccountService>();
             iocService.AddTransient<IAuthorizationService, AuthorizationService>();
             iocService.AddTransient<IChallengeService, ChallengeService>();
             iocService.AddTransient<IUserService, UserService>();
+            
             #endregion
-
+                        
             #region Repositories
+
             iocService.AddTransient<IChallengeRepository, ChallengeRepository>();
             iocService.AddTransient<IUserRepository, UserRepository>();
+
             #endregion
         }
     }

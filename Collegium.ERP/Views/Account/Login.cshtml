@@ -2,21 +2,17 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
 <html lang="en">
 <!-- begin::Head -->
 <head>
-
     <meta charset="utf-8" />
-
     <title>Edu-Net</title>
     <meta name="description" content="Login page example">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!--begin::Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">        <!--end::Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">
+    <!--end::Fonts -->
     <!--begin::Page Custom Styles(used by this page) -->
     <link href="~/css/login/login.min.css" rel="stylesheet" type="text/css" />
     <!--end::Page Custom Styles -->
@@ -24,7 +20,6 @@
     <link href="~/css/layout/perfectScrollbar/perfect-scrollbar.min.rtl.css" rel="stylesheet" type="text/css" />
     <!--end:: Global Mandatory Vendors -->
     <!--begin::Global Theme Styles(used by all pages) -->
-
     <link href="~/css/layout/style.bundle.min.css" rel="stylesheet" type="text/css" />
     <!--end::Global Theme Styles -->
     <!--begin::Layout Skins(used by all pages) -->
@@ -33,13 +28,11 @@
     <link href="~/css/layout/brand/light.min.css" rel="stylesheet" type="text/css" />
     <link href="~/css/layout/aside/light.min.css" rel="stylesheet" type="text/css" />
     <!--end::Layout Skins -->
-
     <link rel="shortcut icon" href="~/images/logo/favicon.ico" />
 </head>
 <!-- end::Head -->
 <!-- begin::Body -->
 <body style="background-color:white" class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-aside--enabled kt-aside--fixed kt-aside--minimize kt-page--loading">
-
     <div class="kt-grid kt-grid--ver kt-grid--root kt-page">
         <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v5 kt-login--signin" id="kt_login">
             <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile" style="background-image: url(/images/background/bg.jpg);">
@@ -49,21 +42,19 @@
                             <a class="kt-login__logo" href="#">
                                 <img src="~/images/logo/logo.png">
                             </a>
-                            <h3 class="kt-login__title"> Ingrese el código para inicar un desafio</h3>
+                            <h3 class="kt-login__title"> Ingrese el código para iniciar un desafío</h3>
                             <div class="kt-login__actions">
                                 <a id="kt_login_signup" asp-action="Index" asp-controller="ChallengeCode" class="btn btn-outline-brand btn-pill">Soy Alumno y tengo un código</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="kt-login__divider"><div></div></div>
-
                 <div class="kt-login__right">
                     <div class="kt-login__wrapper">
                         <div class="kt-login__signin">
                             <div class="kt-login__head">
-                                <h3 class="kt-login__title">Inicie sesion</h3>
+                                <h3 class="kt-login__title">Inicie Sesión</h3>
                             </div>
                             <div class="kt-login__form">
                                 <form class="kt-form" method="post" asp-action="Login" asp-controller="Account">
@@ -75,15 +66,13 @@
                                         <input asp-for="Password" class="form-control" type="text" placeholder="Contraseña" autocomplete="off">
                                         <span asp-validation-for="Password" class="invalid-feedback"></span>
                                     </div>
-
                                     <div class="kt-login__actions">
                                         <button id="kt_login_signin_submit" class="btn btn-brand btn-pill btn-elevate">Ingresar</button>
                                     </div>
-
                                 </form>
                                 <div class="kt-login__account">
                                     <span class="kt-login__account-msg">
-                                        ¿Sos docente y no tenes cuenta todavia?
+                                        ¿ Sos docente y no tenés cuenta todavía ?
                                     </span>&nbsp;&nbsp;
                                     <a href="javascript:;" onclick="displaySignUpForm()" id="kt_login_signup" class="kt-login__account-link">Registrate!</a>
                                 </div>
