@@ -1,3 +1,337 @@
 ﻿<br />
-<h2><strong>Tutorial de Redes</strong></h2>
-<p>asdasdasdasdasdsa</p>
+<div class="fc-content">
+    <h2><strong>Tutorial de Redes</strong></h2>
+    <hr />
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-3">
+            <iframe width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/k2e6eWyn0fE"
+                    frameborder="0"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+    <br />
+    <h4 class="text-success">RJ-45</h4>
+    <p>
+        La RJ-45 es una interfaz física comúnmente usada para conectar
+        redes de cableado estructurado, (categorías 4, 5, 5e y 6). RJ es un
+        acrónimo inglés de Registered Jack que a su vez es parte del
+        Código Federal de Regulaciones de Estados Unidos. Posee ocho
+        "pines" o conexiones eléctricas, que normalmente se usan como
+        extremos de cables de par trenzado.
+        Es utilizada comúnmente con estándares como TIA/EIA-568-B,
+        que define la disposición de los pines o wiring pinout.
+        Una aplicación común es su uso en cables de red Ethernet, donde
+        suelen usarse 8 pines (4 pares). Otras aplicaciones incluyen
+        terminaciones de teléfonos (4 pines o 2 pares) por ejemplo en
+        Francia y Alemania, otros servicios de red como RDSI y T1 e
+        incluso RS-232.
+    </p>
+    <h4 class="text-success">Conexión</h4>
+    <p>
+        Para que todos los cables funcionen en cualquier red, se sigue un
+        estándar a la hora de hacer las conexiones. Los dos extremos del
+        cable llevan un conector RJ45. En un conector macho (como el de
+        la foto inferior) el pin 8 corresponde al situado mas a la derecha
+        cuando se mira desde arriba (con la lengüeta en la parte inferior).
+        En un conector hembra (por ejemplo el de una roseta) el pin 1
+        corresponde al situado mas a la izquierda.
+        Aunque se suelen unir todos los hilos, para las comunicaciones
+        Ethernet sólo se necesitan los pines 1, 2, 3 y 6, usándose los otros
+        para telefonía (el conector RJ-11 encaja dentro del RJ-45,
+        coincidiendo los pines 4 y 5 con los usados para la transmisión de
+        voz en el RJ-11) o para PoE.
+    </p>
+    <h4 class="text-success">Tipos de Cable</h4>
+    <h6>Cable directo</h6>
+    <p>
+        El cable directo de red sirve para conectar dispositivos desiguales, como un computador con un hub o switch. En este
+        caso ambos extremos del cable deben tener la misma distribución. No existe diferencia alguna en la conectividad
+        entre la distribución 568B y la distribución 568A siempre y cuando en ambos extremos se use la misma, en caso
+        contrario hablamos de un cable cruzado.
+    </p>
+    <p>El esquema más utilizado en la práctica es tener en ambos extremos la distribución 568B.</p>
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-3">
+            <strong>Cable directo 568A</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-3">
+            <img src="../images/net/300px-RJ-45_TIA-568A_Left.png" alt="RJ-45_TIA-568A">
+        </div>
+        <div class="col-sm-3">
+            <img src="../images/net/300px-RJ-45_TIA-568A_Right.png" alt="RJ-45_TIA-568A">
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-3">
+            <strong>Cable directo 568B</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-3">
+            <img src="../images/net/300px-RJ-45_TIA-568B_Left.png" alt="RJ-45_TIA-568A">
+        </div>
+        <div class="col-sm-3">
+            <img src="../images/net/300px-RJ-45_TIA-568B_Right.png" alt="RJ-45_TIA-568A">
+        </div>
+    </div>
+    <h6>Cable cruzado</h6>
+    <p>
+        Un cable cruzado es un cable que interconecta todas las señales de salida en un conector con las señales de entrada
+        en el otro conector, y viceversa; permitiendo a dos dispositivos electrónicos conectarse entre sí con una
+        comunicación full duplex. El término se refiere - comúnmente - al cable cruzado de Ethernet, pero otros cables
+        pueden seguir el mismo principio. También permite transmisión confiable vía una conexión ethernet.
+        El cable cruzado sirve para conectar dos dispositivos igualitarios, como 2 computadoras entre sí, para lo que se
+        ordenan los colores de tal manera que no sea necesaria la presencia de un hub. Actualmente la mayoría de hubs o
+        switches soportan cables cruzados para conectar entre sí. A algunas tarjetas de red les es indiferente que se les
+        conecte un cable cruzado o normal, ellas mismas se configuran para poder utilizarlo PC-PC o PC-Hub/switch.
+        Para crear un cable cruzado que funcione en 10/100baseT, un extremo del cable debe tener la distribución 568A y el
+        otro 568B. Para crear un cable cruzado que funcione en 10/100/1000baseT, un extremo del cable debe tener la
+        distribución Gigabit Ethernet (variante A), igual que la 568B, y el otro Gigabit Ethernet (variante B1).
+    </p>
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-3">
+            <strong>Cable cruzado 568A/568B</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-3">
+            <img src="../images/net/300px-RJ-45_TIA-568A_Left_Cross.png" alt="RJ-45_TIA-568A">
+        </div>
+        <div class="col-sm-3">
+            <img src="../images/net/300px-RJ-45_TIA-568B_Right_Cross.png" alt="RJ-45_TIA-568A">
+        </div>
+    </div>
+    <h6>Conectores RJ-45</h6>
+    <p>
+        Para que todos los cables funcionen en cualquier red, se sigue un estándar a la hora de hacer las conexiones. Los dos
+        extremos del cable (UTP CATEGORIA 4 Ó 5) llevaran un conector RJ45 con los colores en el orden indicado en la
+        figura.
+        Para usar con un HUB o SWITCH hay dos normas, la más usada es la B, en los dos casos los dos lados del cable son
+        iguales:
+    </p>
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+            <p><strong>Norma A</strong></p>
+            <ul>
+                <li>Blanco Verde</li>
+                <li>Verde</li>
+                <li>Blanco Naranja</li>
+                <li>Azul</li>
+                <li>Blanco Azul</li>
+                <li>Naranja</li>
+                <li>Blanco Marrón</li>
+                <li>Marrón</li>
+            </ul>
+        </div>
+        <div class="col-sm-3">
+            <p><strong>Norma B</strong></p>
+            <ul>
+                <li>Positivo/Blanco Naranja</li>
+                <li>Negativo/Naranja</li>
+                <li>Positivo /Blanco Verde</li>
+                <li>Negativo/Azul</li>
+                <li>Positivo/Blanco Azul</li>
+                <li>Negativo/Verde</li>
+                <li>Positivo/Blanco Marrón</li>
+                <li>Negativo/Marrón</li>
+            </ul>
+        </div>
+    </div>
+    <br />
+    <h4 class="text-success">Conexión Computadora entre Hubs, switches, routers, etc.</h4>
+    <p>
+        Si sólo se quieren conectar dos ordenadores, existe la posibilidad de colocar el orden de los colores de tal manera que
+        no sea necesaria la presencia de un HUB. También se usa para conectar routers, switches y hubs entre sí. Es lo que se
+        conoce como un cable cruzado. El estándar que se sigue es el siguiente:
+    </p>
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th class="table-info text-center text-black-50">Una punta (Norma B)</th>
+                        <th class="table-info text-center text-black-50">En el otro lado (Norma A)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Blanco Naranja</th>
+                        <th>Blanco Verde</th>
+                    </tr>
+                    <tr>
+                        <th>Naranja</th>
+                        <th>Verde</th>
+                    </tr>
+                    <tr>
+                        <th>Blanco Verde</th>
+                        <th>Blanco Naranja</th>
+                    </tr>
+                    <tr>
+                        <th>Azul</th>
+                        <th>Azul</th>
+                    </tr>
+                    <tr>
+                        <th>Blanco Azul</th>
+                        <th>Blanco Azul</th>
+                    </tr>
+                    <tr>
+                        <th>Verde</th>
+                        <th>Naranja</th>
+                    </tr>
+                    <tr>
+                        <th>Blanco Marrón</th>
+                        <th>Blanco Marrón</th>
+                    </tr>
+                    <tr>
+                        <th>Marrón</th>
+                        <th>Marrón</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br />
+    <h4 class="text-success">Conexión directa PC a PC a 1000 Mbps</h4>
+    <p>
+        Si sólo se quieren conectar 2 PC, existe la posibilidad de colocar el orden de los colores de tal manera que no sea
+        necesaria la presencia de un HUB. Es lo que se conoce como un cable cruzado de 1000. El estándar que se sigue es
+        el siguiente:
+    </p>
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th class="table-info text-center text-black-50">Una punta (Norma B)</th>
+                        <th class="table-info text-center text-black-50">En el otro lado (Norma A)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Blanco Naranja</th>
+                        <th>Blanco Verde</th>
+                    </tr>
+                    <tr>
+                        <th>Naranja</th>
+                        <th>Verde</th>
+                    </tr>
+                    <tr>
+                        <th>Blanco Verde</th>
+                        <th>Blanco Naranja</th>
+                    </tr>
+                    <tr>
+                        <th>Azul</th>
+                        <th>Azul</th>
+                    </tr>
+                    <tr>
+                        <th>Blanco Azul</th>
+                        <th>Blanco Azul</th>
+                    </tr>
+                    <tr>
+                        <th>Verde</th>
+                        <th>Naranja</th>
+                    </tr>
+                    <tr>
+                        <th>Blanco Marrón</th>
+                        <th>Blanco Marrón</th>
+                    </tr>
+                    <tr>
+                        <th>Marrón</th>
+                        <th>Marrón</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br />
+    <h4 class="text-success">Cable cruzado automático</h4>
+    <p>
+        Configuración Automática MDI/MDI-X está especificado como una característica opcional en el 1000BASE-T
+        standard,
+        [1] lo que significa que directamente a través de cables trabajarán dos Interfaces Gigabit capaces. Esta
+        característica elimina la necesidad de cables cruzados, haciendo obsoletos los puertos uplink/normal y el selector
+        manual de switches encontrado en muchos viejos hubs y switches y reduciendo significativamente errores de
+        instalación. Nota que aunque Configuración Automática MDI/MDI-X es generalmente implementada, un cable
+        cruzado podría aún ser requerida en situaciones ocacionales en la que ninguno de los dispositivos conectados tiene la
+        caracteristica implementada y habilitada. Previo al standard 1000Base-T, usar un cable cruzado para conectar un
+        dispositivo a una red accidentalmente, usualmente significaba tiempo perdido en la resolución de problemas
+        resultado de la incoherencia de conexión, pero con este standard en su sitio, esto no es más una preocupación.
+        Incluso por legado los dispositivos 10/100, muchos NICs, switches y hubs automáticamente aplican un cable cruzado
+        interno cuando es necesario. Ademas del eventualmente acordado Automático MDI/MDI-X, esta característica puede
+        también ser referida a varios terminos específicos al vendedor que pueden incluir: Auto uplink and trade, Universal
+        Cable Recognition yAuto Sensing entre otros.
+    </p>
+    <hr />
+    <br />
+    <h4 class="text-success">Uso del comando IPConfig en Windows</h4>
+    <p>
+        Para que el usuario pueda conocer información sobre los adaptadores de red del equipo, todos los sistemas Windows incluyen una aplicación llamada ipconfig.exe.
+        Funciona solo invocándola desde la línea de comandos usando: IPCONFIG.
+        IPCONFIG muestra información y todos los datos de la configuración del equipo para el protocolo TCP/IP.
+        Adicionalmente permite liberar y renovar la dirección IP de un adaptador de red y mostrar el contenido de la caché de resolución DNS, así como vaciarla, actualizar y volver a registrar los nombres.
+        Es de mucha utilidad y no solo para obtener información, sino cuando existen conflictos de conectividad a internet.
+    </p>
+    <h6>¿Cómo iniciar la herramienta IPConfig?</h6>
+    <p>La herramienta es bastante sencilla de iniciar y utilizar, puedes usar cualquiera de las siguientes opciones para ejecutarla:</p>
+    <ul>
+        <li>Inicia la consola de CMD, para eso escribe en el cuadro de Inicio o Ejecutar CMD, oprime la tecla Enter, escribe o inserta en la consola IPConfig y oprime la tecla Enter.</li>
+        <li>Escribe o pega directamente en el cuadro de Inicio o en Ejecutar: cmd /k IPConfig y oprime la tecla Enter.</li>
+    </ul>
+    <br />
+    <h6>Información que proporciona IPConfig</h6>
+    <p>
+        Al usar IPConfig sin ningún modificador, muestra solo los datos esenciales como la Dirección IP, la Máscara de red y la Puerta de enlace, para cada adaptador encontrado.
+        Usándolo con el modificador /ALL, es decir: IPConfig /ALL muestra toda la información disponible.
+    </p>
+    <ul>
+        <li><strong>Descripción: </strong>Nombre del adaptador o tarjeta de red utilizado en la conexión.</li>
+        <li><strong>Dirección IPV4: </strong>Es la dirección IP asignada al equipo en la red local.</li>
+        <li><strong>Puerta de enlace predeterminada: </strong>Es la dirección IP del equipo que funciona como servidor o proxy y que tiene acceso a internet.</li>
+        <li><strong>Servidores DNS: </strong>Son los servidores con los cuales el equipo anterior gestiona en la red la relación nombre de dominio/Dirección IP de las paginas solicitadas. Generalmente son dos, el principal y el secundario.</li>
+        <li>
+            <strong>Estado de DHCP: </strong>Configuración dinámica de host, en el caso del equipo mostrado no se encuentra habilitada, eso significa que siempre se utilizará una dirección IP estática o fija entre el equipo y el host.
+            Al estar habilitada DHCP, cada vez que se inicie una conexión se usará una dirección IP diferente.
+        </li>       
+    </ul>
+    <br />
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-3">
+            <img src="../images/net/ipconfig-local.png" alt="IPConfig local">
+        </div>
+    </div>
+    <br />
+    <p>La siguiente imagen es de un equipo conectado directamente a internet. En este caso el dato: Dirección IPV4, corresponde a la dirección IP externa que identifica al equipo en internet.</p>
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-3">
+            <img src="../images/net/ipconfig-internet.png" alt="IPConfig Internet">
+        </div>
+    </div>
+</div>
