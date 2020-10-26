@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TP3.Core.Data.Account;
+using TP3.Core.Data.Challenge;
 using TP3.Core.Data.Datatable;
 using TP3.Core.Data.User;
 using TP3.Core.Interfaces;
+using TP3.Domain.Entities;
 using TP3.ERP.Helper;
 
 namespace TP3.ERP.Controllers
@@ -21,14 +23,46 @@ namespace TP3.ERP.Controllers
             return View();
         }
 
-        public IActionResult Create()
+        public IActionResult Create(ResultData data)
         {
-            return View();
+            return View(data);
         }
 
         public IActionResult Start()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Start(StartData data)
+        {
+            if (ModelState.IsValid)
+            {
+                //Verificar si el usuario no existe crearlo
+                var response = _userService.GetByUserName(data.Email);
+                if (response == null)
+                {
+                    LoginData user = new LoginData
+                    {
+                        Name = data.Name,
+                        Email = data.Email,
+                        Password = data.Email,
+                        RepeatPassword = data.Email,
+                        Role = (byte)eRole.Student
+                    };
+                    _userService.Create(user);
+                }
+
+                //Registrar la relacion entre el usuario y el challenge
+
+                ResultData resultData = new ResultData
+                {
+                    Name = data.Name,
+                    Code = data.Code,
+                };
+                return RedirectToAction("Create", "ChallengeResult", resultData);
+            }
+            return View(data);
         }
     }
 }

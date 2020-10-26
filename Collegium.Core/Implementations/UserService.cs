@@ -76,7 +76,12 @@ namespace TP3.Core.Implementations
         /// <returns></returns>
         public UserEditData GetByUserName(string email)
         {
-            return _userRepository.FindByCondition(f => f.Email == email).FirstOrDefault().MapToData();
+            var user = _userRepository.FindByCondition(f => f.Email == email).FirstOrDefault();
+            if (user != null)
+            {
+                return user.MapToData();
+            }
+            return null;
         }
 
         /// <summary>

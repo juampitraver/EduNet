@@ -1,4 +1,4 @@
-﻿@model TP3.Core.Data.Account.LoginData
+﻿@model TP3.Core.Data.Challenge.StartData
 <br />
 <div class="fc-content">
     <h2><strong>Bienvenido a tu Desafío de Redes</strong></h2>
@@ -7,21 +7,21 @@
     <h6 class="text-success"><strong>Usa tu creatividad y todo lo que has aprendido en el Curso !!</strong></h6>
     <br />
     <div class="kt-challenge_form">
-        <form class="kt-form" method="post" asp-action="Create" asp-controller="ChallengeResult">
+        <form class="kt-form" method="post" asp-action="Start" asp-controller="ChallengeResult">
             <div class="form-group col-sm-4 offset-4">
-                <input class="form-control" type="text" placeholder="Nombre y Apellido" autocomplete="off">
-                <span class="invalid-feedback"></span>
+                <input asp-for="Name" class="form-control" type="text" placeholder="Nombre y Apellido" autocomplete="off">
+                <span asp-validation-for="Name" class="invalid-feedback"></span>
             </div>
             <div class="form-group col-sm-4 offset-4">
-                <input class="form-control" type="text" placeholder="Mail" autocomplete="off">
-                <span class="invalid-feedback"></span>
+                <input asp-for="Email" class="form-control" type="text" placeholder="Mail" autocomplete="off">
+                <span asp-validation-for="Email" class="invalid-feedback"></span>
             </div>
             <div class="form-group col-sm-4 offset-4">
-                <input class="form-control" type="text" placeholder="Código del Desafío" autocomplete="off">
-                <span class="invalid-feedback"></span>
+                <input asp-for="Code" class="form-control" type="text" placeholder="Código del Desafío" autocomplete="off">
+                <span asp-validation-for="Code" class="invalid-feedback"></span>
             </div>
             <div class="kt-challenge_actions col-sm-4 offset-4 text-center">
-                <button id="kt_challengecode_submit" class="btn btn-brand btn-pill btn-elevate col-sm-4">Iniciar</button>
+                <button type="submit" id="kt_challenge_submit" class="btn btn-brand btn-pill btn-elevate col-sm-4">Iniciar</button>
             </div>
         </form>
     </div>
