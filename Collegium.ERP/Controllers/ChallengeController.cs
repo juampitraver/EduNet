@@ -7,7 +7,6 @@ using TP3.ERP.Helper;
 
 namespace TP3.ERP.Controllers
 {
-
     public class ChallengeController : Controller
     {
         private readonly IUserService _userService;
@@ -15,8 +14,7 @@ namespace TP3.ERP.Controllers
         public ChallengeController(IUserService userService)
         {
             _userService = userService;
-        }
-       
+        }       
 
         public IActionResult Create()
         {
@@ -33,6 +31,5 @@ namespace TP3.ERP.Controllers
             }
             return View(data);
         }
-
     }
 }
