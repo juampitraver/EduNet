@@ -11,6 +11,7 @@ namespace TP3.ERP
         {
 
         }
+
         public void OnAuthorization(AuthorizationFilterContext context)
         {
             if (!context.HttpContext.User.Identity.IsAuthenticated)

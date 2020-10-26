@@ -21,14 +21,14 @@ namespace TP3.ERP.Controllers
             _accountService = accountService;
             _authorizationService = authorizationService;
         }
+
         public IActionResult Login()
         {
             if (User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Index", "Home");
             }
-            return View();
-            
+            return View();            
         }
 
         [HttpPost]
@@ -56,8 +56,6 @@ namespace TP3.ERP.Controllers
                 }
             }
             return View();
-
-
         }
 
         public async Task<IActionResult> Logout()
@@ -65,6 +63,5 @@ namespace TP3.ERP.Controllers
             await HttpContext.SignOutAsync();
             return RedirectToAction("Login");
         }
-
     }
 }

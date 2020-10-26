@@ -16,6 +16,6 @@ namespace TP3.Domain.Entities
         [Required]
         public string Password { get; set; }
         public bool IsActive { get; set; }
-        public eRole Role { get; set; }
+        public eRole Role { get; set; }        
     }
 }

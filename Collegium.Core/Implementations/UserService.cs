@@ -9,6 +9,7 @@ using TP3.Core.Resources;
 using TP3.Domain.Interfaces;
 using System.Linq;
 using TP3.Core.Data.Account;
+using TP3.Domain.Entities;
 
 namespace TP3.Core.Implementations
 {
@@ -21,7 +22,6 @@ namespace TP3.Core.Implementations
         {
             _userRepository = userRepository;
         }
-
 
         /// <summary>
         /// Encrypt password and create new User
@@ -39,6 +39,7 @@ namespace TP3.Core.Implementations
                     Message = "Ya existe un usuario con ese mismo nombre"
                 };
             }
+
             _userRepository.Create(data.MapToEntity(CryptographyHelper.Encrypt(data.Password.Trim())));
             if (_userRepository.Save())
             {
@@ -56,9 +57,7 @@ namespace TP3.Core.Implementations
                     Message = string.Format(ResponseMessages.MsgSaveError, _entity)
                 };
             }
-
         }
-
     
         /// <summary>
         /// Get User by id
@@ -68,9 +67,7 @@ namespace TP3.Core.Implementations
         public UserEditData GetById(long id)
         {
             return _userRepository.FindByCondition(f => f.Id == id).FirstOrDefault().MapToData();
-        }
-
-        
+        }        
 
         /// <summary>
         /// Get User by id for change password

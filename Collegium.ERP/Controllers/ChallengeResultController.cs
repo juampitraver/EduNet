@@ -3,19 +3,18 @@ using TP3.Core.Data.Account;
 using TP3.Core.Data.Datatable;
 using TP3.Core.Data.User;
 using TP3.Core.Interfaces;
-using TP3.Domain.Entities;
 using TP3.ERP.Helper;
 
 namespace TP3.ERP.Controllers
 {
-    public class ChallengeController : Controller
+    public class ChallengeResultController : Controller
     {
         private readonly IUserService _userService;
 
-        public ChallengeController(IUserService userService)
+        public ChallengeResultController(IUserService userService)
         {
             _userService = userService;
-        }
+        }       
 
         public IActionResult Index()
         {
@@ -27,15 +26,9 @@ namespace TP3.ERP.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Create(LoginData data)
+        public IActionResult Start()
         {
-            if (ModelState.IsValid)
-            {
-                TempData.Put("RESPONSE", _userService.Create(data));
-                return RedirectToAction("Login", "Account");
-            }
-            return View(data);
-        }        
+            return View();
+        }
     }
 }
