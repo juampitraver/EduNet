@@ -164,7 +164,3 @@ var KTWizard3 = function () {
 		}
 	};
 }();
-
-jQuery(document).ready(function() {	
-	KTWizard3.init();
-});
