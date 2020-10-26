@@ -37,7 +37,7 @@
     <!-- begin:: Header Mobile -->
     <div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
         <div class="kt-header-mobile__logo">
-            <a asp-action="Index" asp-controller="ChallengeCode">
+            <a asp-action="Login" asp-controller="Account">
                 <img alt="Logo" src="~/images/logo/menuLogo.png" />
             </a>
         </div>
@@ -57,7 +57,7 @@
                 <!-- begin:: Brand -->
                 <div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
                     <div class="kt-aside__brand-logo">
-                        <a asp-action="Index" asp-controller="ChallengeCode">
+                        <a asp-action="Login" asp-controller="Account">
                             <img alt="Logo" src="~/images/logo/menuLogo.png" />
                         </a>
                     </div>
@@ -66,7 +66,6 @@
                <partial name="_Menu">
                 <!-- end:: Aside Menu -->
             </div>
-
             <div class="kt-aside-menu-overlay"></div>
             <!-- end:: Aside -->
             <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" id="kt_wrapper">
@@ -370,7 +369,7 @@
             "showMethod": "fadeIn",
             "hideMethod": "fadeOut"
         };
-        @if ( TempData["RESPONSE"] != null)
+        @if (TempData["RESPONSE"] != null)
         {
             var response = TempData.Get<TP3.Core.Data.BaseData.ResponseData>("RESPONSE");
             <text>

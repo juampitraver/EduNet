@@ -8,7 +8,8 @@ namespace TP3.Core.Data.Challenge
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = "Requeried")]
         [Display(Name = "Nombre")]
         public string Name { get; set; }
-        
+
+        [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = "Requeried")]
         [EmailAddress(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = "Email")]
         [Display(Name = "Mail")]
         public string Email { get; set; }
