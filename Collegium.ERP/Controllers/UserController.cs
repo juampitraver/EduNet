@@ -29,7 +29,7 @@ namespace TP3.ERP.Controllers
             {
                 data.Role = (byte)eRole.Teacher;
                 TempData.Put("RESPONSE", _userService.Create(data));
-                return RedirectToAction("Index", "Challenge");
+                return RedirectToAction("Login", "Account");
             }
             return View(data);
         }        
