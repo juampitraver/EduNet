@@ -1,5 +1,6 @@
 ﻿using TP3.Core.Resources;
 using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace TP3.Core.Data.Challenge
 {
@@ -11,6 +12,10 @@ namespace TP3.Core.Data.Challenge
                 
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = "Requeried")]
         [Display(Name = "Código del Desafío")]
-        public string Code { get; set; }        
+        public string Code { get; set; }
+
+        public DateTime TimeLimit { get; set; }
+
+
     }
 }

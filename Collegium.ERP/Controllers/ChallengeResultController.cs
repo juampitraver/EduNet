@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using TP3.Core.Data.Account;
 using TP3.Core.Data.Challenge;
 using TP3.Core.Data.Datatable;
@@ -50,7 +51,7 @@ namespace TP3.ERP.Controllers
                         RepeatPassword = data.Email,
                         Role = (byte)eRole.Student
                     };
-                    _userService.Create(user);
+                    _userService.Create(user);                    
                 }
 
                 //Registrar la relacion entre el usuario y el challenge
@@ -59,6 +60,7 @@ namespace TP3.ERP.Controllers
                 {
                     Name = data.Name,
                     Code = data.Code,
+                    TimeLimit = DateTime.Now.AddMinutes(60) //debería pasarse el tiempo establecido para el challenge
                 };
                 return RedirectToAction("Create", "ChallengeResult", resultData);
             }
