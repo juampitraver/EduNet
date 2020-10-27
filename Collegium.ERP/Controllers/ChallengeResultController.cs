@@ -3,6 +3,7 @@ using System;
 using TP3.Core.Data.Account;
 using TP3.Core.Data.Challenge;
 using TP3.Core.Data.Datatable;
+using TP3.Core.Data.BaseData;
 using TP3.Core.Data.User;
 using TP3.Core.Interfaces;
 using TP3.Domain.Entities;
@@ -13,10 +14,12 @@ namespace TP3.ERP.Controllers
     public class ChallengeResultController : Controller
     {
         private readonly IUserService _userService;
+        private readonly IChallengeService _challengeService;
 
-        public ChallengeResultController(IUserService userService)
+        public ChallengeResultController(IUserService userService, IChallengeService challengeService)
         {
             _userService = userService;
+            _challengeService = challengeService;
         }       
 
         public IActionResult Index()
@@ -24,7 +27,7 @@ namespace TP3.ERP.Controllers
             return View();
         }
 
-        public IActionResult Create(ResultData data)
+        public IActionResult Create(ChallengeResultData data)
         {
             return View(data);
         }
@@ -39,6 +42,20 @@ namespace TP3.ERP.Controllers
         {
             if (ModelState.IsValid)
             {
+                //Verificar si existe el código del challenge ingresado
+                var challengeValid = _challengeService.ValidByCode(data.Code);
+                if (!challengeValid.Result)
+                {
+                    TempData.Put("RESPONSE", challengeValid);
+                    return View(data);
+                }
+
+                var challenge = _challengeService.GetByCode(data.Code);
+                if (challenge == null)
+                {                    
+                    return View(data);
+                }
+
                 //Verificar si el usuario no existe crearlo
                 var response = _userService.GetByUserName(data.Email);
                 if (response == null)
@@ -56,15 +73,17 @@ namespace TP3.ERP.Controllers
 
                 //Registrar la relacion entre el usuario y el challenge
 
-                ResultData resultData = new ResultData
+                ChallengeResultData resultData = new ChallengeResultData
                 {
-                    Name = data.Name,
-                    Code = data.Code,
+                    Student = data.Name,
+                    ChallengeCode = data.Code,
+                    ChallengeDescription = challenge.Description,
+                    ChallengeTitle = challenge.Title,                    
                     TimeLimit = DateTime.Now.AddMinutes(60) //debería pasarse el tiempo establecido para el challenge
                 };
                 return RedirectToAction("Create", "ChallengeResult", resultData);
             }
             return View(data);
-        }
+        }        
     }
 }
