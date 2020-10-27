@@ -1,6 +1,7 @@
 ﻿using TP3.Core.Resources;
 using System.ComponentModel.DataAnnotations;
 using System;
+using System.Collections.Generic;
 
 namespace TP3.Core.Data.Challenge
 {
@@ -15,5 +16,7 @@ namespace TP3.Core.Data.Challenge
         public string ChallengeDescription { get; set; }
 
         public DateTime TimeLimit { get; set; }
-    }
+
+        public List<NetElement> NetElementOption { get; set; }
+    }    
 }

@@ -8,6 +8,7 @@ using TP3.Core.Data.User;
 using TP3.Core.Interfaces;
 using TP3.Domain.Entities;
 using TP3.ERP.Helper;
+using System.Collections.Generic;
 
 namespace TP3.ERP.Controllers
 {
@@ -15,11 +16,14 @@ namespace TP3.ERP.Controllers
     {
         private readonly IUserService _userService;
         private readonly IChallengeService _challengeService;
+        private List<NetElement> _netElementOption;
 
         public ChallengeResultController(IUserService userService, IChallengeService challengeService)
         {
             _userService = userService;
             _challengeService = challengeService;
+
+            
         }       
 
         public IActionResult Index()
@@ -29,6 +33,24 @@ namespace TP3.ERP.Controllers
 
         public IActionResult Create(ChallengeResultData data)
         {
+            _netElementOption = new List<NetElement>
+            {
+                new NetElement { Name = "Adaptador Wi-Fi USB" },
+                new NetElement { Name = "Placa de Red PCI" },
+                new NetElement { Name = "Conector RJ45" },
+                new NetElement { Name = "Conector RJ15" },
+                new NetElement { Name = "Conector RJ11" },
+                new NetElement { Name = "Extensor/Repetidor Wi-Fi" },
+                new NetElement { Name = "Hub" },
+                new NetElement { Name = "Router" },
+                new NetElement { Name = "Switch" },
+                new NetElement { Name = "Segmento de Cable 220V" },
+                new NetElement { Name = "Segmento de Cable UTP Categoría 4" },
+                new NetElement { Name = "Segmento de Cable UTP Categoría 5" },
+                new NetElement { Name = "Segmento de Cable UTP Categoría 6" }
+            };
+            data.NetElementOption = _netElementOption;
+
             return View(data);
         }
 
@@ -78,8 +100,8 @@ namespace TP3.ERP.Controllers
                     Student = data.Name,
                     ChallengeCode = data.Code,
                     ChallengeDescription = challenge.Description,
-                    ChallengeTitle = challenge.Title,                    
-                    TimeLimit = DateTime.Now.AddMinutes(60) //debería pasarse el tiempo establecido para el challenge
+                    ChallengeTitle = challenge.Title,
+                    TimeLimit = DateTime.Now.AddMinutes(60), //debería pasarse el tiempo establecido para el challenge                   
                 };
                 return RedirectToAction("Create", "ChallengeResult", resultData);
             }

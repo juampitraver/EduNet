@@ -26,13 +26,13 @@ namespace TP3.Core.Implementations
                 return new ResponseData
                 {
                     Result = true,
-                    Message = "El Desafío con el Código ya existe"
+                    Message = "El Desafío con el Código ingresado ya existe."
                 };
             }
             return new ResponseData
             {
                 Result = false,
-                Message = "El Desafío con el Código no existe"
+                Message = "El Desafío con el Código ingresado no existe."
             };
         }
 
