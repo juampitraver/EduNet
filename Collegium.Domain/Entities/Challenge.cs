@@ -19,5 +19,7 @@ namespace TP3.Domain.Entities
         public User User { get; set; }
         public IList<ChallengeElement> Elements { get; set; }
         public IList<ChallengeCable> Cables { get; set; }
+        public IList<ChallengeCommand> Commands { get; set; }
+        
     }
 }
