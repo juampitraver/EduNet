@@ -1,16 +1,14 @@
 ﻿using System.Linq;
 using TP3.Core.Data.BaseData;
 using TP3.Core.Data.Challenge;
-using TP3.Core.Data.ChallengeCreation;
 using TP3.Core.Data.Datatable;
 using TP3.Core.Interfaces;
 using TP3.Core.Mappings;
-using TP3.Core.Resources;
 using TP3.Domain.Interfaces;
 
 namespace TP3.Core.Implementations
 {
-    public class ChallengeService: IChallengeService
+    public class ChallengeService : IChallengeService
     {
         private readonly IChallengeRepository _challengeRepository;
         private const string _entity = "El Desafío";
@@ -25,7 +23,7 @@ namespace TP3.Core.Implementations
         /// Get all Challenges by user base on filters
         /// </summary>
         /// <returns></returns>
-        public GridData<ChallengeCreationGridData> GetAll(DTParameters param, string user)
+        public GridData<ChallengeGridData> GetAll(DTParameters param, string user)
         {
             return _challengeRepository.GetFilteredByPage(param.Start,
                         param.Length,

@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TP3.Core.Data.ChallengeCreation;
+using TP3.Core.Data.Challenge;
 using TP3.Core.Data.Datatable;
 using TP3.Core.Interfaces;
-using TP3.Domain.Entities;
 using TP3.ERP.Controllers.Authorization;
 
 namespace TP3.ERP.Controllers
@@ -13,9 +12,9 @@ namespace TP3.ERP.Controllers
         private readonly IChallengeService _challengeService;
 
         public ChallengeController(IAuthorizationService authorizationService,
-                                           IChallengeService _challengeService) : base(authorizationService)
+                                           IChallengeService challengeService) : base(authorizationService)
         {
-            _challengeService = _challengeService;
+            _challengeService = challengeService;
         }
 
         public IActionResult Index() => View();
@@ -23,15 +22,15 @@ namespace TP3.ERP.Controllers
         [HttpPost]
         public JsonResult Index([FromBody] DTParameters param)
         {
-            GridData<ChallengeCreationGridData> data = _challengeService.GetAll(param, User.Identity.Name);
+            GridData<ChallengeGridData> data = _challengeService.GetAll(param, User.Identity.Name);
             return new JsonResult(new { draw = param.Draw++, recordsTotal = data.Count, recordsFiltered = data.Count, data = data.List });
         }
 
-        //public IActionResult Create()
-        //{
-        //    LoadReferences();
-        //    return View();
-        //}
+        public IActionResult Create()
+        {
+            // LoadReferences();
+            return View();
+        }
 
         //[HttpPost]
         //public IActionResult Create(ClientData data)

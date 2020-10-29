@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using TP3.Core.Data.BaseData;
 
-namespace TP3.Core.Data.ChallengeCreation
+namespace TP3.Core.Data.Challenge
 {
-    public class ChallengeCreationGridData:BaseGridData
+    public class ChallengeGridData:BaseGridData
     {
         public long Id { get; set; }
         [Display(Name = "Título")]
