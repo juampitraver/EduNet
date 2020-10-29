@@ -1,9 +1,6 @@
-﻿using TP3.Core.Data.Datatable;
+﻿using TP3.Core.Data.Account;
 using TP3.Core.Data.User;
 using TP3.Domain.Entities;
-using TP3.Domain.Entities.Datatable;
-using System.Linq;
-using TP3.Core.Data.Account;
 
 namespace TP3.Core.Mappings
 {
@@ -20,8 +17,8 @@ namespace TP3.Core.Mappings
             };
         }
 
-    
-       
+
+
         public static User MapToEntity(this User entity, UserEditData data)
         {
             return entity;

@@ -25,10 +25,10 @@ namespace TP3.ERP.Controllers.Authorization
                 var controllerActionDescriptor = context.ActionDescriptor as ControllerActionDescriptor;
                 if (!controllerActionDescriptor.FilterDescriptors.Any(a => a.Filter.GetType() == typeof(AllowAnonymousFilter)))
                 {
-                    //if (!_authorizationService.IsRoleAllowed(context.HttpContext.User.Identity.Name, controllerActionDescriptor.ActionName, controllerActionDescriptor.ControllerName))
-                    //{
-                    //    context.Result = new RedirectToActionResult("NotAllowed", "Error", null);
-                    //}
+                    if (!_authorizationService.IsTeacher(context.HttpContext.User.Identity.Name))
+                    {
+                        context.Result = new RedirectToActionResult("Login", "Account", null);
+                    }
                 }
             }
             base.OnActionExecuting(context);
