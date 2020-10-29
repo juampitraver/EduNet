@@ -19,7 +19,6 @@ namespace TP3.ERP
             iocService.AddTransient<IAccountService, AccountService>();
             iocService.AddTransient<IAuthorizationService, AuthorizationService>();
             iocService.AddTransient<IChallengeService, ChallengeService>();
-            iocService.AddTransient<IChallengeCreationService, ChallengeCreationService>();
             iocService.AddTransient<IUserService, UserService>();
             
             #endregion

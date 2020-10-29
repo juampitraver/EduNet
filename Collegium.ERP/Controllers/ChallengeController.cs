@@ -1,41 +1,83 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TP3.Core.Data.Account;
+using TP3.Core.Data.ChallengeCreation;
 using TP3.Core.Data.Datatable;
-using TP3.Core.Data.User;
 using TP3.Core.Interfaces;
 using TP3.Domain.Entities;
-using TP3.ERP.Helper;
+using TP3.ERP.Controllers.Authorization;
 
 namespace TP3.ERP.Controllers
 {
-    public class ChallengeController : Controller
+    public class ChallengeController : AuthorizationController
     {
-        private readonly IUserService _userService;
 
-        public ChallengeController(IUserService userService)
+        private readonly IChallengeService _challengeService;
+
+        public ChallengeController(IAuthorizationService authorizationService,
+                                           IChallengeService _challengeService) : base(authorizationService)
         {
-            _userService = userService;
+            _challengeService = _challengeService;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Create()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
 
         [HttpPost]
-        public IActionResult Create(LoginData data)
+        public JsonResult Index([FromBody] DTParameters param)
         {
-            if (ModelState.IsValid)
-            {
-                TempData.Put("RESPONSE", _userService.Create(data));
-                return RedirectToAction("Login", "Account");
-            }
-            return View(data);
-        }        
+            GridData<ChallengeCreationGridData> data = _challengeService.GetAll(param, User.Identity.Name);
+            return new JsonResult(new { draw = param.Draw++, recordsTotal = data.Count, recordsFiltered = data.Count, data = data.List });
+        }
+
+        //public IActionResult Create()
+        //{
+        //    LoadReferences();
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //public IActionResult Create(ClientData data)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        TempData.Put("RESPONSE", _clientService.Create(data));
+        //        return RedirectToAction("Index");
+        //    }
+        //    LoadReferences();
+        //    return View(data);
+        //}
+
+        //public IActionResult Edit(long id)//clientId
+        //{
+        //    var data = _clientService.GetById(id);
+        //    LoadReferences();
+        //    if (data.ProvinceId.HasValue && data.ProvinceId.Value != 0)
+        //    {
+        //        ViewBag.Locations = _locationService.GetByProvinceId(data.ProvinceId.Value);
+        //    }
+        //    else
+        //    {
+        //        ViewBag.Locations = new List<SelectableData>();
+        //    }
+        //    return View(data);
+        //}
+
+
+
+        //[HttpPost]
+        //public IActionResult Edit(ClientData data)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        TempData.Put("RESPONSE", _clientService.Update(data));
+        //        return RedirectToAction("Index");
+        //    }
+        //    LoadReferences();
+        //    return View(data);
+        //}
+
+        //[HttpPost]
+        //public JsonResult Delete(long id)//clientId
+        //{
+        //    return new JsonResult(new { response = _clientService.Delete(id) });
+        //}
     }
 }
