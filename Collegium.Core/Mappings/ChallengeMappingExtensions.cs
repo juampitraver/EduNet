@@ -37,5 +37,31 @@ namespace TP3.Core.Mappings
                 Title = entity.Title
             };
         }
+
+        public static Challenge MapToEntity(this ChallengeData data, User user)
+        {
+            return new Challenge
+            {
+                Cables = data.Cables.Select(map => new ChallengeCable
+                {
+                    CableColor = (eCableColor)map.CableId,
+                    Order = map.Order
+                }).ToList(),
+                Commands = data.Commands.Select(map => new ChallengeCommand
+                {
+                    Command = (eCommand)map.Id
+                }).ToList(),
+                ConectionType = (eConectionType)data.ConnectionTypeId,
+                Description = data.Description,
+                Elements = data.Elements.Select(map => new ChallengeElement
+                {
+                    Element = (eElement)map.ElementId,
+                    Quantity = map.Quantity
+                }).ToList(),
+                NetType = (eNetType) data.NetTypeId,
+                Title = data.Title,
+                UserId = user.Id
+            };
+        }
     }
 }

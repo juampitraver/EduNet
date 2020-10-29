@@ -9,5 +9,6 @@ namespace TP3.Core.Interfaces
         ResponseData ValidByCode(string code);
         ChallengeQueryData GetByCode(string code);
         GridData<ChallengeGridData> GetAll(DTParameters param, string user);
+        ResponseData Create(ChallengeData data, string userName);
     }
 }

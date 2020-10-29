@@ -3,6 +3,7 @@ using TP3.Core.Data.Challenge;
 using TP3.Core.Data.Datatable;
 using TP3.Core.Interfaces;
 using TP3.ERP.Controllers.Authorization;
+using TP3.ERP.Helper;
 
 namespace TP3.ERP.Controllers
 {
@@ -32,17 +33,17 @@ namespace TP3.ERP.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public IActionResult Create(ClientData data)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        TempData.Put("RESPONSE", _clientService.Create(data));
-        //        return RedirectToAction("Index");
-        //    }
-        //    LoadReferences();
-        //    return View(data);
-        //}
+        [HttpPost]
+        public IActionResult Create(ChallengeData data)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData.Put("RESPONSE", _challengeService.Create(data,User.Identity.Name));
+                return RedirectToAction("Index");
+            }
+            //LoadReferences();
+            return View(data);
+        }
 
         //public IActionResult Edit(long id)//clientId
         //{

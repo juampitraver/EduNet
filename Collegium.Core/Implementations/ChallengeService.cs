@@ -4,6 +4,7 @@ using TP3.Core.Data.Challenge;
 using TP3.Core.Data.Datatable;
 using TP3.Core.Interfaces;
 using TP3.Core.Mappings;
+using TP3.Core.Resources;
 using TP3.Domain.Interfaces;
 
 namespace TP3.Core.Implementations
@@ -11,11 +12,14 @@ namespace TP3.Core.Implementations
     public class ChallengeService : IChallengeService
     {
         private readonly IChallengeRepository _challengeRepository;
+        private readonly IUserRepository _userRepository;
         private const string _entity = "El Desafío";
 
-        public ChallengeService(IChallengeRepository challengeRepository)
+        public ChallengeService(IChallengeRepository challengeRepository,
+                                IUserRepository userRepository)
         {
             _challengeRepository = challengeRepository;
+            _userRepository = userRepository;
         }
 
 
@@ -31,6 +35,42 @@ namespace TP3.Core.Implementations
                         param.Columns[param.Order[0].Column].Data,
                         param.Order[0].Dir.ToString(),
                         user).MapToGridData();
+        }
+
+        /// <summary>
+        /// Create the challenge from user with role = teacher
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="userName"></param>
+        /// <returns></returns>
+        public ResponseData Create(ChallengeData data, string userName)
+        {
+            var user = _userRepository.FindByCondition(f => f.Email.ToUpper().Trim().Equals(userName.ToUpper().Trim()) && f.IsActive && f.Role == Domain.Entities.eRole.Teacher).FirstOrDefault();
+            if (user != null)
+            {
+                _challengeRepository.Create(data.MapToEntity(user));
+                if (_challengeRepository.Save())
+                {
+                    return new ResponseData
+                    {
+                        Result = true,
+                        Message = string.Format(ResponseMessages.MsgSaveSuccess, _entity)
+                    };
+                }
+                else
+                {
+                    return new ResponseData
+                    {
+                        Result = false,
+                        Message = string.Format(ResponseMessages.MsgSaveError, _entity)
+                    };
+                }
+            }
+            return new ResponseData
+            {
+                Result = false,
+                Message = string.Format(ResponseMessages.MsgSaveError, _entity)
+            };
         }
 
         public ResponseData ValidByCode(string code)
