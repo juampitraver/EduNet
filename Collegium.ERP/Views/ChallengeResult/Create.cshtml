@@ -1,0 +1,215 @@
+﻿@model TP3.Core.Data.Challenge.ChallengeResultData
+<head>
+    <link href="../css/wizard-3.css" rel="stylesheet" type="text/css" />
+    <script src="../js/wizard-3.js" type="text/javascript"></script>
+</head>
+<br />
+<div class="fc-content">
+    <h2><strong>Desafío de Redes</strong></h2>
+    <hr />
+    <!-- begin:: Content -->
+    <div class="kt-container kt-container--fluid kt-grid__item kt-grid__item--fluid">
+        <div class="kt-portlet col-sm-12">
+            <div class="row">
+                <div class="col-sm-4">
+                    Alumno: <h3 class="text-success">@Model.Student</h3>
+                </div>
+                <div class="col-sm-4 text-center">
+                    Intentos disponibles: <h3 id="life" class="text-success">3</h3>
+                </div>
+                <div class="col-sm-4 text-right">
+                    Tiempo restante: <h3 id="time" class="text-success"></h3>
+                </div>
+            </div>            
+        </div>
+        <br />       
+        <div class="kt-portlet">
+            <div class="kt-portlet__body kt-portlet__body--fit">
+                <div class="kt-grid kt-wizard-v3 kt-wizard-v3--white" id="kt_wizard_v3" data-ktwizard-state="step-first">
+                    <div class="kt-grid__item">
+                        <!--begin: Form Wizard Nav -->
+                        <div class="kt-wizard-v3__nav">
+                            <div class="kt-wizard-v3__nav-items">
+                                <!--doc: Replace A tag with SPAN tag to disable the step link click -->
+                                <a class="kt-wizard-v3__nav-item" href="#" data-ktwizard-type="step" data-ktwizard-state="current">
+                                    <div class="kt-wizard-v3__nav-body">
+                                        <div class="kt-wizard-v3__nav-label">
+                                            <span>1</span> Situación a resolver
+                                        </div>
+                                        <div class="kt-wizard-v3__nav-bar"></div>
+                                    </div>
+                                </a>
+                                <a class="kt-wizard-v3__nav-item" href="#" data-ktwizard-type="step">
+                                    <div class="kt-wizard-v3__nav-body">
+                                        <div class="kt-wizard-v3__nav-label">
+                                            <span>2</span> Componentes de Red
+                                        </div>
+                                        <div class="kt-wizard-v3__nav-bar"></div>
+                                    </div>
+                                </a>
+                                <a class="kt-wizard-v3__nav-item" href="#" data-ktwizard-type="step">
+                                    <div class="kt-wizard-v3__nav-body">
+                                        <div class="kt-wizard-v3__nav-label">
+                                            <span>3</span> Armado de Conectores
+                                        </div>
+                                        <div class="kt-wizard-v3__nav-bar"></div>
+                                    </div>
+                                </a>
+                                <a class="kt-wizard-v3__nav-item" href="#" data-ktwizard-type="step">
+                                    <div class="kt-wizard-v3__nav-body">
+                                        <div class="kt-wizard-v3__nav-label">
+                                            <span>4</span> Comandos
+                                        </div>
+                                        <div class="kt-wizard-v3__nav-bar"></div>
+                                    </div>
+                                </a>
+                                <a class="kt-wizard-v3__nav-item" href="#" data-ktwizard-type="step">
+                                    <div class="kt-wizard-v3__nav-body">
+                                        <div class="kt-wizard-v3__nav-label">
+                                            <span>5</span> Resúmen
+                                        </div>
+                                        <div class="kt-wizard-v3__nav-bar"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!--end: Form Wizard Nav -->
+                    </div>
+                    <div class="kt-grid__item kt-grid__item--fluid kt-wizard-v3__wrapper">
+                        <!--begin: Form Wizard Form-->
+                        <form class="kt-form" id="kt_form">
+                            <!--begin: Form Wizard Step 1-->
+                            <div class="kt-wizard-v3__content" data-ktwizard-type="step-content" data-ktwizard-state="current">                                
+                                <div class="kt-heading kt-heading--md"><strong class="text-info">@Model.ChallengeTitle</strong></div>
+                                <div class="kt-form__section kt-form__section--first">
+                                    <div class="kt-wizard-v3__form">
+                                        <div class="form-group">
+                                            <div class="kt-heading kt-heading--md">Descripción de la situación</div>
+                                            <p>@Model.ChallengeDescription</p>                                            
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end: Form Wizard Step 1-->
+                            <!--begin: Form Wizard Step 2-->
+                            <div class="kt-wizard-v3__content" data-ktwizard-type="step-content">
+                                <div class="kt-heading kt-heading--md">Componentes de Red</div>
+                                <div class="kt-form__section kt-form__section--first">
+                                    <div class="kt-wizard-v3__form">
+                                        Selecciona los elementos que te permitan resolver la situación e ingresa la cantidad necesaria.                                        
+                                        <div>
+                                            <br />
+                                            <ul class="list-group">
+                                                @foreach (var item in Model.NetElementOption)
+                                                {
+                                                    <li class="list-group-item">
+                                                        <div class="row" >
+                                                            <input type="checkbox" class="col-sm-1" />
+                                                            <input class="form-control col-sm-9" type="text" disabled value="@item.Name">
+                                                            <input class="form-control col-sm-2" type="number" title="Cantidad" value=@item.Quantity>
+                                                        </div>                                                        
+                                                    </li>
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end: Form Wizard Step 2-->
+                            <!--begin: Form Wizard Step 3-->
+                            <div class="kt-wizard-v3__content" data-ktwizard-type="step-content">
+                                <div class="kt-heading kt-heading--md">Armado de Conectores</div>
+                                <div class="kt-form__section kt-form__section--first">
+                                    <div class="kt-wizard-v3__form">
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end: Form Wizard Step 3-->
+                            <!--begin: Form Wizard Step 4-->
+                            <div class="kt-wizard-v3__content" data-ktwizard-type="step-content">
+                                <div class="kt-heading kt-heading--md">Comandos</div>
+                                <div class="kt-form__section kt-form__section--first">
+                                    <div class="kt-wizard-v3__form">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end: Form Wizard Step 4-->
+                            <!--begin: Form Wizard Step 5-->
+                            <div class="kt-wizard-v3__content" data-ktwizard-type="step-content">
+                                <div class="kt-heading kt-heading--md">Resúmen</div>
+                                <div class="kt-form__section kt-form__section--first">
+                                    <div class="kt-wizard-v3__review">
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end: Form Wizard Step 5-->
+                            <!--begin: Form Actions -->
+                            <div class="kt-form__actions">
+                                <button class="btn btn-brand btn-pill btn-elevate col-sm-3" data-ktwizard-type="action-prev">
+                                    Volver
+                                </button>
+                                <button class="btn btn-success btn-brand btn-pill btn-elevate col-sm-3" data-ktwizard-type="action-submit">
+                                    Finalizar
+                                </button>
+                                <button class="btn btn-brand btn-pill btn-elevate col-sm-3" data-ktwizard-type="action-next">
+                                    Siguiente
+                                </button>
+                            </div>
+                            <!--end: Form Actions -->
+                        </form>
+                        <!--end: Form Wizard Form-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end:: Content -->
+</div>
+@section Scripts
+{    
+    <script>
+        $(document).ready(function () {
+            KTWizard3.init();
+
+            countdown("@Model.TimeLimit.ToString("yyyy-MM-ddTHH:mm:ss")");
+        })
+
+        function countdown(limit) {
+            // Set the date we're counting down to            
+            var countDownDate = new Date(limit).getTime();
+
+            // Update the count down every 1 second
+            var x = setInterval(function () {
+
+                // Get today's date and time
+                var now = new Date().getTime();
+
+                // Find the distance between now and the count down date
+                var distance = countDownDate - now;
+
+                // Time calculations for days, hours, minutes and seconds
+                //var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                if (minutes < 10) {
+                    $("#time").removeClass("text-success");
+                    $("#time").addClass("text-warning");
+                }
+
+                $("#time").text(hours + "h " + minutes + "m " + seconds + "s ");
+
+                if (distance < 0) {
+                    clearInterval(x);
+                    $("#time").removeClass("text-success");
+                    $("#time").addClass("text-danger");
+                    $("#time").text("Tiempo agotado !!!");
+                }
+            }, 1000);
+        }
+    </script>
+}

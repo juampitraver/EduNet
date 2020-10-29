@@ -6,6 +6,7 @@ namespace TP3.Core.Data.User
     public class UserEditData
     {
         public long Id { get; set; }
+        
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = "Requeried")]
         [Display(Name = "Usuario")]
         public string UserName { get; set; }
@@ -13,18 +14,20 @@ namespace TP3.Core.Data.User
         [Display(Name = "Rol")]
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = "Requeried")]
         public long RoleId { get; set; }
+        
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = "Requeried")]
         [StringLength(100, MinimumLength = 8, ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = "MaxLenth")]
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
         public string Password { get; set; }
+        
         [Display(Name = "Repetir Contraseña")]
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = "Requeried")]
         [DataType(DataType.Password)]
-        [Compare(nameof(Password), ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = "Compare")]
+        //[Compare(nameof(Password), ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = "Compare")]
         public string RepeatPassword { get; set; }
-        [Display(Name = "¿Cambiar contraseña?")]
-        public bool ChangePassword { get; set; }
         
+        [Display(Name = "¿Cambiar contraseña?")]
+        public bool ChangePassword { get; set; }        
     }
 }

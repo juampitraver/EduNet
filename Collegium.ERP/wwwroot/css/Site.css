@@ -2,3 +2,7 @@
     background-color: #9DF9B1;
     font-size: 130%;
 }
+
+.multiLine {
+    height: 300px !important;
+}

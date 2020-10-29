@@ -25,10 +25,6 @@ namespace TP3.Domain.Entities
         [Description("Rojo")]
         RED = 9,
         [Description("Negro")]
-        BLACK = 10,
-
-
-
-
+        BLACK = 10
     }
 }

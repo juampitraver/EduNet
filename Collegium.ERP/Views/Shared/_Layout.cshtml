@@ -37,7 +37,7 @@
     <!-- begin:: Header Mobile -->
     <div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
         <div class="kt-header-mobile__logo">
-            <a asp-action="Index" asp-controller="ChallengeCode">
+            <a asp-action="Login" asp-controller="Account">
                 <img alt="Logo" src="~/images/logo/menuLogo.png" />
             </a>
         </div>
@@ -57,7 +57,7 @@
                 <!-- begin:: Brand -->
                 <div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
                     <div class="kt-aside__brand-logo">
-                        <a asp-action="Index" asp-controller="ChallengeCode">
+                        <a asp-action="Login" asp-controller="Account">
                             <img alt="Logo" src="~/images/logo/menuLogo.png" />
                         </a>
                     </div>
@@ -66,7 +66,6 @@
                <partial name="_Menu">
                 <!-- end:: Aside Menu -->
             </div>
-
             <div class="kt-aside-menu-overlay"></div>
             <!-- end:: Aside -->
             <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" id="kt_wrapper">
@@ -74,13 +73,14 @@
                 <div id="kt_header" class="kt-header kt-grid kt-grid--ver  kt-header--fixed ">
                     <!-- begin: Header Menu -->
                     <div class="kt-header-menu-wrapper kt-grid__item kt-grid__item--fluid" id="kt_header_menu_wrapper">
+                        
                     </div>
                     <!-- end: Header Menu -->
                     <!-- begin:: Header Topbar -->
                     <div class="kt-header__topbar">
                         <!--begin: Search -->
                         <div class="kt-header__topbar-item kt-header__topbar-item--search">
-
+                            @DateTime.Now.ToLongDateString()
                         </div>
                         <!--end: Search -->
                         <!--begin: Notifications -->
@@ -370,7 +370,7 @@
             "showMethod": "fadeIn",
             "hideMethod": "fadeOut"
         };
-        @if ( TempData["RESPONSE"] != null)
+        @if (TempData["RESPONSE"] != null)
         {
             var response = TempData.Get<TP3.Core.Data.BaseData.ResponseData>("RESPONSE");
             <text>

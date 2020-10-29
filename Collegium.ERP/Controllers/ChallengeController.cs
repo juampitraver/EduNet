@@ -3,6 +3,7 @@ using TP3.Core.Data.Account;
 using TP3.Core.Data.Datatable;
 using TP3.Core.Data.User;
 using TP3.Core.Interfaces;
+using TP3.Domain.Entities;
 using TP3.ERP.Helper;
 
 namespace TP3.ERP.Controllers
@@ -14,7 +15,12 @@ namespace TP3.ERP.Controllers
         public ChallengeController(IUserService userService)
         {
             _userService = userService;
-        }       
+        }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
 
         public IActionResult Create()
         {
@@ -30,6 +36,6 @@ namespace TP3.ERP.Controllers
                 return RedirectToAction("Login", "Account");
             }
             return View(data);
-        }
+        }        
     }
 }

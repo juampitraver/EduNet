@@ -6,23 +6,22 @@ namespace TP3.Core.Mappings
 {
     public static class UserMappingExtensions
     {
-        public static User MapToEntity(this LoginData data, string passWord)
+        public static User MapToEntity(this LoginData data, string password)
         {
             return new User
             {
                 Email = data.Email.Trim(),
                 Name = data.Name,
-                Role = eRole.Teacher,
-                Password = passWord
+                Role = (eRole)data.Role,
+                Password = password
             };
-        }
-
-
-
+        }    
+       
         public static User MapToEntity(this User entity, UserEditData data)
         {
             return entity;
         }
+
         public static UserEditData MapToData(this User entity)
         {
             return new UserEditData

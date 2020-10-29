@@ -10,6 +10,7 @@ namespace TP3.ERP.Controllers
         {
           
         }
+
         public IActionResult Index() => View();
     }
 }

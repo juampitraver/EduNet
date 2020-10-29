@@ -21,7 +21,6 @@ namespace TP3.Domain.Entities
         [Description("Pinza plana")]
         FLATGRIPPER = 8,
         [Description("Ficha de teléfono")]
-        PHONECONNECTOR = 9,
-
+        PHONECONNECTOR = 9
     }
 }

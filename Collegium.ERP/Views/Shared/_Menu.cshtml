@@ -1,33 +1,55 @@
-﻿
-<div class="kt-aside-menu-wrapper kt-grid__item kt-grid__item--fluid" id="kt_aside_menu_wrapper">
+﻿<div class="kt-aside-menu-wrapper kt-grid__item kt-grid__item--fluid" id="kt_aside_menu_wrapper">
     @if (User.Identity.IsAuthenticated)
     {
+        //Teacher
         <div id="kt_aside_menu"
-             class="kt-aside-menu  kt-aside-menu--dropdown "
+             class="kt-aside-menu kt-aside-menu--dropdown "
              data-ktmenu-vertical="1"
              data-ktmenu-dropdown="1" data-ktmenu-scroll="0">
             <ul class="kt-menu__nav ">
                 <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="click">
-                    <a href="@Url.Action("Index", "ChallengeCreation")" class="kt-menu__link kt-menu__toggle">
-                        <i class="kt-menu__link-icon flaticon2-mail"></i>
+                    <a href="@Url.Action("Index", "Challenge")" class="kt-menu__link">
+                        <i class="kt-menu__link-icon flaticon2-analytics-2"></i>
                         <span class="kt-menu__link-text">Desafíos</span>
                         <i class="kt-menu__ver-arrow la la-angle-right">
                         </i>
                     </a>
                 </li>
-               
+                <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="click">
+                    <a href="@Url.Action("Index", "ChallengeResult")" class="kt-menu__link">
+                        <i class="kt-menu__link-icon flaticon2-dashboard"></i>
+                        <span class="kt-menu__link-text">Resultados</span>
+                        <i class="kt-menu__ver-arrow la la-angle-right">
+                        </i>
+                    </a>
+                </li>
+                <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="click" data-ktmenu-link-redirect="1">
+                    <a target="_blank" href="@Url.Action("Index", "Help")" class="kt-menu__link">
+                        <i class="kt-menu__link-icon flaticon2-gear"></i>
+                        <span class="kt-menu__link-text">Ayuda</span><span class="kt-menu__link-badge"></span>
+                        <i class="kt-menu__ver-arrow la la-angle-right"></i>
+                    </a>
+                </li>
+                <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--bottom-1" aria-haspopup="true" data-ktmenu-submenu-toggle="click" data-ktmenu-link-redirect="1">
+                    <a target="_blank" href="@Url.Action("Index", "About")" class="kt-menu__link">
+                        <i class="kt-menu__link-icon flaticon2-document"></i>
+                        <span class="kt-menu__link-text">Acerca de</span><span class="kt-menu__link-badge"></span>
+                        <i class="kt-menu__ver-arrow la la-angle-right"></i>
+                    </a>
+                </li>
             </ul>
-        </div>
+        </div>      
     }
     else
     {
+        //Student
         <div id="kt_aside_menu"
              class="kt-aside-menu kt-aside-menu--dropdown "
              data-ktmenu-vertical="1"
              data-ktmenu-dropdown="1" data-ktmenu-scroll="0">
             <ul class="kt-menu__nav ">
                 <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="click" data-ktmenu-link-redirect="1">
-                    <a href="@Url.Action("Index", "Tutorial")" class="kt-menu__link">
+                    <a target="_blank" href="@Url.Action("Index", "Tutorial")" class="kt-menu__link">
                         <i class="kt-menu__link-icon flaticon2-help"></i>
                         <span class="kt-menu__link-text">Tutorial</span>
                         <i class="kt-menu__ver-arrow la la-angle-right">
@@ -35,21 +57,27 @@
                     </a>
                 </li>
                 <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="click" data-ktmenu-link-redirect="1">
-                    <a href="@Url.Action("Index", "ChallengeCode")" class="kt-menu__link">
+                    <a href="#" class="kt-menu__link">
                         <i class="kt-menu__link-icon flaticon2-analytics-2"></i>
                         <span class="kt-menu__link-text">Desafío</span>
                         <i class="kt-menu__ver-arrow la la-angle-right"></i>
                     </a>
                 </li>
-                <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--bottom-1" aria-haspopup="true" data-ktmenu-submenu-toggle="click" data-ktmenu-link-redirect="1">
-                    <a href="@Url.Action("Index", "Help")" class="kt-menu__link">
+                <li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="click" data-ktmenu-link-redirect="1">
+                    <a target="_blank" href="@Url.Action("Index", "Help")" class="kt-menu__link">
                         <i class="kt-menu__link-icon flaticon2-gear"></i>
                         <span class="kt-menu__link-text">Ayuda</span><span class="kt-menu__link-badge"></span>
+                        <i class="kt-menu__ver-arrow la la-angle-right"></i>
+                    </a>
+                </li>
+                <li class="kt-menu__item kt-menu__item--submenu kt-menu__item--bottom-1" aria-haspopup="true" data-ktmenu-submenu-toggle="click" data-ktmenu-link-redirect="1">
+                    <a target="_blank" href="@Url.Action("Index", "About")" class="kt-menu__link">
+                        <i class="kt-menu__link-icon flaticon2-document"></i>
+                        <span class="kt-menu__link-text">Acerca de Edu-Net</span><span class="kt-menu__link-badge"></span>
                         <i class="kt-menu__ver-arrow la la-angle-right"></i>
                     </a>
                 </li>
             </ul>
         </div>
     }
-
 </div>

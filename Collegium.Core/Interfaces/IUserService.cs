@@ -1,5 +1,5 @@
 ﻿using TP3.Core.Data.BaseData;
-using System;
+using TP3.Domain.Entities;
 
 namespace TP3.Core.Interfaces
 {

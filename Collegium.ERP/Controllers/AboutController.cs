@@ -2,12 +2,12 @@
 
 namespace TP3.ERP.Controllers
 {
-    public class ChallengeCodeController : Controller
+    public class AboutController : Controller
     {
-        public ChallengeCodeController()
+        public AboutController()
         {
-
         }
+
         public IActionResult Index() => View();
     }
 }
