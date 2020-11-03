@@ -6,3 +6,19 @@
 .multiLine {
     height: 300px !important;
 }
+
+.commandBackground {
+    margin-top: 20px;
+    background-image: url("../images/challenge/command.PNG");
+    background-repeat: no-repeat;
+    height: 450px;
+    width: 990px;
+}
+
+.commandSelect {
+    background-color: black;
+    font-color: white;
+    position: static !important;
+    top: 50px !important;
+    /*margin-top:100px;    */
+}

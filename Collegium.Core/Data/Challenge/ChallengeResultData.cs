@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System;
 using System.Collections.Generic;
+using TP3.Domain.Entities;
 
 namespace TP3.Core.Data.Challenge
 {
@@ -16,6 +17,12 @@ namespace TP3.Core.Data.Challenge
         public string ChallengeDescription { get; set; }
 
         public DateTime TimeLimit { get; set; }
+
+        public eCommand CommandOption { get; set; }
+
+        public eConectionType ConnectionTypeOption { get; set; }
+
+        public eNetType NetTypeOption { get; set; }
 
         public List<NetElement> NetElementOption { get; set; }
     }    

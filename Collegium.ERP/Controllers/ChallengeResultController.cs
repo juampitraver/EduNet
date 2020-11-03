@@ -51,6 +51,7 @@ namespace TP3.ERP.Controllers
             };
             data.NetElementOption = _netElementOption;
 
+
             return View(data);
         }
 
