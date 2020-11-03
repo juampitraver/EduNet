@@ -17,7 +17,9 @@
 
 .commandSelect {
     background-color: black;    
-    position: static !important;
-    top: 50px !important;
-    /*margin-top:100px;    */
+    position: absolute !important;
+    height: 30px;
+    left: 20px;    
+    padding:2px;
+    top: 193px !important;    
 }
