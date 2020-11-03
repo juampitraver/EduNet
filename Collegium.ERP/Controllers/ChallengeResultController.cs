@@ -1,14 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using TP3.Core.Data.Account;
 using TP3.Core.Data.Challenge;
-using TP3.Core.Data.Datatable;
-using TP3.Core.Data.BaseData;
-using TP3.Core.Data.User;
 using TP3.Core.Interfaces;
 using TP3.Domain.Entities;
 using TP3.ERP.Helper;
-using System.Collections.Generic;
 
 namespace TP3.ERP.Controllers
 {
@@ -16,15 +13,17 @@ namespace TP3.ERP.Controllers
     {
         private readonly IUserService _userService;
         private readonly IChallengeService _challengeService;
+        private readonly IEnumService _enumService;
         private List<NetElement> _netElementOption;
 
-        public ChallengeResultController(IUserService userService, IChallengeService challengeService)
+        public ChallengeResultController(IUserService userService,
+                                         IChallengeService challengeService,
+                                         IEnumService enumService)
         {
             _userService = userService;
             _challengeService = challengeService;
-
-            
-        }       
+            _enumService = enumService;
+        }
 
         public IActionResult Index()
         {
@@ -52,6 +51,7 @@ namespace TP3.ERP.Controllers
             data.NetElementOption = _netElementOption;
 
 
+            data.Cable = _enumService.GetAllCableSelectable();
             return View(data);
         }
 
@@ -75,7 +75,7 @@ namespace TP3.ERP.Controllers
 
                 var challenge = _challengeService.GetByCode(data.Code);
                 if (challenge == null)
-                {                    
+                {
                     return View(data);
                 }
 
@@ -91,7 +91,7 @@ namespace TP3.ERP.Controllers
                         RepeatPassword = data.Email,
                         Role = (byte)eRole.Student
                     };
-                    _userService.Create(user);                    
+                    _userService.Create(user);
                 }
 
                 //Registrar la relacion entre el usuario y el challenge
@@ -107,6 +107,6 @@ namespace TP3.ERP.Controllers
                 return RedirectToAction("Create", "ChallengeResult", resultData);
             }
             return View(data);
-        }        
+        }
     }
 }
