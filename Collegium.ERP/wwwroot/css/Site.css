@@ -23,3 +23,11 @@
     padding:2px;
     top: 193px !important;    
 }
+
+.finishBackground {
+    margin-top: 20px;
+    background-image: url("../images/challenge/flags.jpg");
+    background-repeat: no-repeat;
+    height: 650px;
+    width: 990px;
+}

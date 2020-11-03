@@ -341,6 +341,9 @@
             if (result == false) {
                 life = life - 1;
                 $("#life").text(life);
+            } else {
+                var url = "/ChallengeResult/Successful";
+                window.location.href = url;
             }
 
             return result;      

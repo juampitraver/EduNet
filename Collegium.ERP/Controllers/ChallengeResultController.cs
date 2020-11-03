@@ -108,5 +108,10 @@ namespace TP3.ERP.Controllers
             }
             return View(data);
         }
+
+        public IActionResult Successful()
+        {
+            return View();
+        }
     }
 }
