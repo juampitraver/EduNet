@@ -135,19 +135,19 @@ var KTWizard3 = function () {
 				//KTApp.block(formEl);
 
 				// See: http://malsup.com/jquery/form/#ajaxSubmit
-				formEl.ajaxSubmit({
-					success: function() {
-						KTApp.unprogress(btn);
-						//KTApp.unblock(formEl);
+				//formEl.ajaxSubmit({
+				//	success: function() {
+				//		KTApp.unprogress(btn);
+				//		//KTApp.unblock(formEl);
 
-						swal.fire({
-							"title": "", 
-							"text": "The application has been successfully submitted!", 
-							"type": "success",
-							"confirmButtonClass": "btn btn-secondary"
-						});
-					}
-				});
+				//		swal.fire({
+				//			"title": "", 
+				//			"text": "The application has been successfully submitted!", 
+				//			"type": "success",
+				//			"confirmButtonClass": "btn btn-secondary"
+				//		});
+				//	}
+				//});
 			}
 		});
 	}

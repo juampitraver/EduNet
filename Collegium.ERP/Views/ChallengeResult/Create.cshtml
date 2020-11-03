@@ -2,7 +2,6 @@
 @using TP3.Domain.Entities;
 <head>
     <link href="../css/wizard-3.css" rel="stylesheet" type="text/css" />
-
     <script src="../js/wizard-3.js" type="text/javascript"></script>
 </head>
 <style>
@@ -108,7 +107,7 @@
                                                 <strong>Selecciona el tipo de Red que mejor se adapte como solución.</strong>
                                             </div>
                                             <div class="col-sm-6">
-                                                @Html.DropDownListFor(m => m.ConnectionTypeOption, Html.GetEnumSelectList<eNetType>(), "Selecciona una opción", new { @class = "form-control" })
+                                                @Html.DropDownListFor(m => m.NetTypeOption, Html.GetEnumSelectList<eNetType>(), "Selecciona una opción", new { @id="ddlNetType", @class = "form-control" })
                                             </div>
                                             <br />                                            
                                         </div>
@@ -117,7 +116,7 @@
                                                 <strong>Selecciona el tipo de Conexión de Red que permitirá una óptima comunicación.</strong>
                                             </div>
                                             <div class="col-sm-6">
-                                                @Html.DropDownListFor(m => m.ConnectionTypeOption, Html.GetEnumSelectList<eConectionType>(), "Selecciona una opción", new { @class = "form-control" })
+                                                @Html.DropDownListFor(m => m.ConnectionTypeOption, Html.GetEnumSelectList<eConectionType>(), "Selecciona una opción", new { @id= "ddlConectionType", @class = "form-control" })
                                             </div>
                                             <br />
                                         </div>
@@ -185,7 +184,7 @@
                                             </div>
                                             <div class="commandBackground col-sm-12">
                                                 <div class="col-sm-4">
-                                                    @Html.DropDownListFor(m => m.ConnectionTypeOption, Html.GetEnumSelectList<eCommand>(), "Selecciona una opción", new { @class = "form-control commandSelect" })
+                                                    @Html.DropDownListFor(m => m.ConnectionTypeOption, Html.GetEnumSelectList<eCommand>(), "Selecciona una opción", new { @id="ddlCommand", @class = "form-control commandSelect" })
                                                 </div>
                                             </div>                                            
                                         </div>
@@ -199,7 +198,33 @@
                                 <div class="kt-heading kt-heading--md">Resúmen</div>
                                 <div class="kt-form__section kt-form__section--first">
                                     <div class="kt-wizard-v3__review">
-
+                                        <div>
+                                            <div class="text-info">
+                                                <strong>Para el tipo de Red que mejor se adapta como solución, seleccionaste:</strong>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input id="txtNetType" class="form-control" disabled />
+                                            </div>
+                                            <br />
+                                        </div>
+                                        <div>
+                                            <div class="text-info">
+                                                <strong>Para el tipo de Conexión de Red que permitirá una óptima comunicación, seleccionaste:</strong>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input id="txtConectionType" class="form-control" disabled />
+                                            </div>
+                                            <br />
+                                        </div>
+                                        <div>
+                                            <div class="text-info">
+                                                <strong>Para comprobar la correcta comunicación entre dispositivos, seleccionaste:</strong>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input id="txtCommand" class="form-control" disabled />
+                                            </div>
+                                            <br />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -209,7 +234,7 @@
                                 <button class="btn btn-brand btn-pill btn-elevate col-sm-3" data-ktwizard-type="action-prev">
                                     Volver
                                 </button>
-                                <button class="btn btn-success btn-brand btn-pill btn-elevate col-sm-3" data-ktwizard-type="action-submit">
+                                <button id="btnEnd" class="btn btn-success btn-brand btn-pill btn-elevate col-sm-3" onclick="valid();" data-ktwizard-type="action-submit">
                                     Finalizar
                                 </button>
                                 <button class="btn btn-brand btn-pill btn-elevate col-sm-3" data-ktwizard-type="action-next">
@@ -233,7 +258,18 @@
         $(document).ready(function () {
             KTWizard3.init();
 
+            $("#ddlNetType").change(function () {
+                $("#txtNetType").val($("#ddlNetType :selected").text());
+            });
 
+            $("#ddlConectionType").change(function () {
+                $("#txtConectionType").val($("#ddlConectionType :selected").text());
+            });
+
+            $("#ddlCommand").change(function () {
+                $("#txtCommand").val($("#ddlCommand :selected").text());
+            });            
+            
             countdown("@Model.TimeLimit.ToString("yyyy-MM-ddTHH:mm:ss")");
         })
 
@@ -272,6 +308,26 @@
             }, 1000);
         }
 
+        function valid() {
+            var result = true;
+
+            if ($("#ddlNetType :selected").val() != 1) {
+                alert("El tipo de red que has seleccionado no podría solucionar la situación, piensa y elige nuevamente !!");
+                result = false;
+            }
+
+            if (result && $("#ddlConectionType :selected").val() != 2) {
+                alert("El tipo de Conexión que has seleccionado no podría solucionar la situación, piensa y elige nuevamente !!");
+                result = false;
+            }
+
+            if (result && $("#ddlCommand :selected").val() != 11) {
+                alert("El Comando que has seleccionado no te daría la información necesaria para comprobar si está todo funcionando, piensa y elige nuevamente !!");
+                result = false;
+            }                  
+
+            return result;      
+        }
 
     </script>
 

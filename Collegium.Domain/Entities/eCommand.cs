@@ -24,5 +24,7 @@ namespace TP3.Domain.Entities
         REG = 9,
         [Description("net")]
         NET = 10,
+        [Description("ipconfig + ping")]
+        PING_IPCONFIG = 11
     }
 }
