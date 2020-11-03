@@ -16,8 +16,7 @@
 }
 
 .commandSelect {
-    background-color: black;
-    font-color: white;
+    background-color: black;    
     position: static !important;
     top: 50px !important;
     /*margin-top:100px;    */

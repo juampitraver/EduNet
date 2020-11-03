@@ -102,8 +102,7 @@
                             <div class="kt-wizard-v3__content" data-ktwizard-type="step-content">
                                 <div class="kt-heading kt-heading--md">Componentes de Red</div>
                                 <div class="kt-form__section kt-form__section--first">
-                                    <div class="kt-wizard-v3__form">
-                                        Selecciona los elementos que te permitan resolver la situación e ingresa la cantidad necesaria.
+                                    <div class="kt-wizard-v3__form">                                        
                                         <div>
                                             <div class="text-info">
                                                 <strong>Selecciona el tipo de Red que mejor se adapte como solución.</strong>
@@ -111,19 +110,7 @@
                                             <div class="col-sm-6">
                                                 @Html.DropDownListFor(m => m.ConnectionTypeOption, Html.GetEnumSelectList<eNetType>(), "Selecciona una opción", new { @class = "form-control" })
                                             </div>
-                                            <br />
-                                            <ul class="list-group">
-                                                @foreach (var item in Model.NetElementOption)
-                                                {
-                                                    <li class="list-group-item">
-                                                        <div class="row">
-                                                            <input type="checkbox" class="col-sm-1" />
-                                                            <input class="form-control col-sm-9" type="text" disabled value="@item.Name">
-                                                            <input class="form-control col-sm-2" type="number" title="Cantidad" value=@item.Quantity>
-                                                        </div>
-                                                    </li>
-                                                }
-                                            </ul>
+                                            <br />                                            
                                         </div>
                                         <div>
                                             <div class="text-info">
@@ -181,7 +168,6 @@
                                                         <img id="cable/@(item.Id).png" class="img-fluid" src="~/images/cable/@(item.Id).png" draggable="true" ondragstart="dragOut(event)" />
                                                    
                                                 }
-
                                             </div>
                                         </div>
                                     </div>
