@@ -21,7 +21,7 @@
                     Alumno: <h3 class="text-success">@Model.Student</h3>
                 </div>
                 <div class="col-sm-4 text-center">
-                    Intentos disponibles: <h3 id="life" class="text-success">3</h3>
+                    Intentos disponibles: <h3><span id="life" class="text-success"></span></h3>
                 </div>
                 <div class="col-sm-4 text-right">
                     Tiempo restante: <h3 id="time" class="text-success"></h3>
@@ -256,7 +256,11 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         $(document).ready(function () {
+            var life = 5;
+
             KTWizard3.init();
+
+            $("#life").text(life);
 
             $("#ddlNetType").change(function () {
                 $("#txtNetType").val($("#ddlNetType :selected").text());
@@ -310,6 +314,14 @@
 
         function valid() {
             var result = true;
+            var life = parseInt($("#life").text());
+
+            if (life == 0) {
+                alert("Lo sentimos, no te quedan oportunidades para intentar la solución. No te desanimes, puedes comenzar nuevamente !!");
+                var url = "/ChallengeResult/Start";
+                window.location.href = url;
+                return false;
+            }    
 
             if ($("#ddlNetType :selected").val() != 1) {
                 alert("El tipo de red que has seleccionado no podría solucionar la situación, piensa y elige nuevamente !!");
@@ -324,7 +336,12 @@
             if (result && $("#ddlCommand :selected").val() != 11) {
                 alert("El Comando que has seleccionado no te daría la información necesaria para comprobar si está todo funcionando, piensa y elige nuevamente !!");
                 result = false;
-            }                  
+            }
+
+            if (result == false) {
+                life = life - 1;
+                $("#life").text(life);
+            }
 
             return result;      
         }
