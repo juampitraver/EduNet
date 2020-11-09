@@ -31,7 +31,7 @@ namespace TP3.Infrastructure.Implementations
                 filter = string.Empty;
 
             //get query 
-            var query = base.FindByCondition(x => x.IsActive && x.User.Name.ToUpper().Trim().Equals(user.ToUpper().Trim()));
+            var query = base.FindByCondition(x => x.IsActive && x.User.Email.ToUpper().Trim().Equals(user.ToUpper().Trim()));
 
             //apply filter
             query = query.Where(x => x.Id.ToString().Contains(filter) ||

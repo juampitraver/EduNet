@@ -27,7 +27,34 @@ namespace TP3.ERP.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(new List<ChallengeResultStudentData> { new ChallengeResultStudentData {
+                Date = DateTime.Now.AddDays(-3).ToString("g"),
+                Result = "CORRECTO",
+                Tries = 2,
+                Student = "Juan Perez"
+                
+            },
+            new ChallengeResultStudentData {
+                Date = DateTime.Now.AddDays(-1).ToString("g"),
+                Result = "INCORRECTO",
+                Tries = 5,
+                Student = "Pablo Ceballos"
+
+            },
+            new ChallengeResultStudentData {
+                Date = DateTime.Now.ToString("g"),
+                Result = "CORRECTO",
+                Tries = 1,
+                Student = "Camila Sanchez"
+
+            },
+            new ChallengeResultStudentData {
+                Date = DateTime.Now.AddDays(-3).ToString("g"),
+                Result = "CORRECTO",
+                Tries = 2,
+                Student = "Agostina Abdom"
+
+            }});
         }
 
         public IActionResult Create(ChallengeResultData data)

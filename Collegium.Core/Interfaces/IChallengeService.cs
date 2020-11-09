@@ -10,5 +10,8 @@ namespace TP3.Core.Interfaces
         ChallengeQueryData GetByCode(string code);
         GridData<ChallengeGridData> GetAll(DTParameters param, string user);
         ResponseData Create(ChallengeData data, string userName);
+        void AddElement(ChallengeData data);
+        void AddCommand(ChallengeData data);
+        void AddCable(ChallengeData data);
     }
 }

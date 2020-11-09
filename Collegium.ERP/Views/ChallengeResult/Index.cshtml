@@ -1,6 +1,5 @@
-﻿<head>
-</head>
-<br />
+﻿@model List<TP3.Core.Data.Challenge.ChallengeResultStudentData>
+
 <div class="fc-content">
     <h2><strong>Resultados de Desafíos</strong></h2>
     <hr />
@@ -8,22 +7,24 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Código</th>
-                    <th>Título</th>
-                    <th>Tipo de Red</th>
-                    <th>Tipo de Conexión</th>
                     <th>Fecha</th>
                     <th>Alumno</th>
+                    <th>Números de intentos</th>
                     <th>Resultado</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.Date</td>
+                    <td>@item.Student</td>
+                    <td>@item.Tries</td>
+                    <td>@item.Result</td>
+                </tr>
+                }
+
             </tbody>
         </table>
     </div>
 </div>
-@section Scripts
-{
-    <script>
-    </script>
-}

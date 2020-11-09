@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using TP3.Core.Data.Challenge;
 using TP3.Core.Data.Datatable;
 using TP3.Domain.Entities;
@@ -34,11 +35,13 @@ namespace TP3.Core.Mappings
             {
                 Id = entity.Id,
                 Code = entity.Code,
-                Title = entity.Title
+                Title = entity.Title,
+                LastEntry = DateTime.Now.ToString("g"),
+                Participants = 6
             };
         }
 
-        public static Challenge MapToEntity(this ChallengeData data, User user)
+        public static Challenge MapToEntity(this ChallengeData data, User user, string code)
         {
             return new Challenge
             {
@@ -49,7 +52,7 @@ namespace TP3.Core.Mappings
                 }).ToList(),
                 Commands = data.Commands.Select(map => new ChallengeCommand
                 {
-                    Command = (eCommand)map.Id
+                    Command = (eCommand)map.CommandId
                 }).ToList(),
                 ConectionType = (eConectionType)data.ConnectionTypeId,
                 Description = data.Description,
@@ -60,7 +63,8 @@ namespace TP3.Core.Mappings
                 }).ToList(),
                 NetType = (eNetType) data.NetTypeId,
                 Title = data.Title,
-                UserId = user.Id
+                UserId = user.Id,
+                Code = code
             };
         }
     }

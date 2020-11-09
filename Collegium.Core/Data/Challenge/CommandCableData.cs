@@ -2,17 +2,15 @@
 
 namespace TP3.Core.Data.Challenge
 {
-    public class ChallenteCableData
+    public class CommandCableData
     {
-        public ChallenteCableData()
+        public CommandCableData()
         {
             IsSelect = true;
         }
-        public int CableId { get; set; }
-        [Display(Name = "Cable")]
+        public int CommandId { get; set; }
+        [Display(Name = "Comando")]
         public string Name { get; set; }
-        [Display(Name = "Orden")]
-        public int Order { get; set; }
         public bool IsSelect { get; set; }
     }
 }

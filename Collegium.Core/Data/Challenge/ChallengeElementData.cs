@@ -4,6 +4,10 @@ namespace TP3.Core.Data.Challenge
 {
     public class ChallengeElementData
     {
+        public ChallengeElementData()
+        {
+            IsSelect = true;
+        }
         public int ElementId { get; set; }
         [Display(Name = "Elemento")]
         public string Name { get; set; }

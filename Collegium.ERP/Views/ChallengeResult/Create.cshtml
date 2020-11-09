@@ -7,6 +7,19 @@
 <style>
     .cables img {
         border: 1px solid black;
+        margin-bottom: 11px;
+    }
+    .plugBackground {
+        background-image: url(/images/cable/rj485.jpg);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    #sortable {
+        height: 300px;
+        padding-top: 46px;
+        padding-left: 90px;
+
     }
 </style>
 <br />
@@ -101,30 +114,30 @@
                             <div class="kt-wizard-v3__content" data-ktwizard-type="step-content">
                                 <div class="kt-heading kt-heading--md">Componentes de Red</div>
                                 <div class="kt-form__section kt-form__section--first">
-                                    <div class="kt-wizard-v3__form">                                        
+                                    <div class="kt-wizard-v3__form">
                                         <div>
                                             <div class="text-info">
                                                 <strong>Selecciona el tipo de Red que mejor se adapte como solución.</strong>
                                             </div>
                                             <div class="col-sm-6">
-                                                @Html.DropDownListFor(m => m.NetTypeOption, Html.GetEnumSelectList<eNetType>(), "Selecciona una opción", new { @id="ddlNetType", @class = "form-control" })
+                                                @Html.DropDownListFor(m => m.NetTypeOption, Html.GetEnumSelectList<eNetType>(), "Selecciona una opción", new { @id = "ddlNetType", @class = "form-control" })
                                             </div>
-                                            <br />                                            
+                                            <br />
                                         </div>
                                         <div>
                                             <div class="text-info">
                                                 <strong>Selecciona el tipo de Conexión de Red que permitirá una óptima comunicación.</strong>
                                             </div>
                                             <div class="col-sm-6">
-                                                @Html.DropDownListFor(m => m.ConnectionTypeOption, Html.GetEnumSelectList<eConectionType>(), "Selecciona una opción", new { @id= "ddlConectionType", @class = "form-control" })
+                                                @Html.DropDownListFor(m => m.ConnectionTypeOption, Html.GetEnumSelectList<eConectionType>(), "Selecciona una opción", new { @id = "ddlConectionType", @class = "form-control" })
                                             </div>
                                             <br />
                                         </div>
                                         <div>
                                             <div class="text-info">
-                                                <strong>Selecciona los elementos que te permitan resolver la situación e ingresa la cantidad necesaria.</strong> 
-                                            </div>                                            
-                                            <div>                                                
+                                                <strong>Selecciona los elementos que te permitan resolver la situación e ingresa la cantidad necesaria.</strong>
+                                            </div>
+                                            <div>
                                                 <ul class="list-group">
                                                     @foreach (var item in Model.NetElementOption)
                                                     {
@@ -138,7 +151,7 @@
                                                     }
                                                 </ul>
                                             </div>
-                                        </div>                                        
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -149,107 +162,148 @@
                                 <div class="kt-form__section kt-form__section--first">
                                     <div class="kt-wizard-v3__form">
                                         <div class="row cables">
-                                            <div class="col-3" ondrop="dropOut(event)" ondragover="allowDropOut(event)">
-                                                @for (int i = 0; i < Model.Cable.Count; i++)
-                                                {
-                                                    <input type="hidden" asp-for="Cable[i].Id" />
-                                                    <input type="hidden" asp-for="Cable[i].IsSelected" />
-                                                    <input type="hidden" asp-for="Cable[i].Order" />
-                                                }
-                                                @foreach (var item in Model.Cable.Where(f => !f.IsSelected))
-                                                {
-                                                    <img class="img-fluid" id="cable/@(item.Id).png" src="~/images/cable/@(item.Id).png" draggable="true" ondragstart="dragIn(event)" />
-                                                }
+                                            <div class="col-5">
+                                                <div class="kt-portlet">
+                                                    <div class="kt-portlet__head">
+                                                        <div class="kt-portlet__head-label">
+                                                            <h3 class="kt-portlet__head-title">
+                                                                Cables disponibles
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                    <!--begin::Form-->
+
+                                                    <div class="kt-portlet__body">
+                                                        <div  ondrop="dropOut(event)" ondragover="allowDropOut(event)"> 
+                                                            @for (int i = 0; i < Model.Cable.Count; i++)
+                                                            {
+                                                                <input type="hidden" asp-for="Cable[i].Id" />
+                                                                <input type="hidden" asp-for="Cable[i].IsSelected" />
+                                                                <input type="hidden" asp-for="Cable[i].Order" />
+                                                            }
+                                                            @foreach (var item in Model.Cable.Where(f => !f.IsSelected))
+                                                            {
+                                                                <img class="img-fluid" id="cable/@(item.Id).png" src="~/images/cable/@(item.Id).png" draggable="true" ondragstart="dragIn(event)" />
+                                                            }
+                                                        </div>
+                                                      
+                                                    </div>
+                                               
+
+
                                             </div>
-                                            <div class="col-9" id="sortable" ondrop="dropIn(event)" ondragover="allowDropIn(event)">
-                                                @foreach (var item in Model.Cable.Where(f => f.IsSelected))
-                                                {
-                                                        <img id="cable/@(item.Id).png" class="img-fluid" src="~/images/cable/@(item.Id).png" draggable="true" ondragstart="dragOut(event)" />
-                                                   
-                                                }
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end: Form Wizard Step 3-->
-                            <!--begin: Form Wizard Step 4-->
-                            <div class="kt-wizard-v3__content" data-ktwizard-type="step-content">
-                                <div class="kt-heading kt-heading--md">Comandos</div>
-                                <div class="kt-form__section kt-form__section--first">
-                                    <div class="kt-wizard-v3__form">
-                                        <div>
-                                            <div class="text-info">
-                                                <strong>Selecciona el ó los comandos que utilizarías para verificar si la conexión entre dispositivos es exitosa.</strong>
-                                            </div>
-                                            <div class="commandBackground col-sm-12">
-                                                <div class="col-sm-4">
-                                                    @Html.DropDownListFor(m => m.ConnectionTypeOption, Html.GetEnumSelectList<eCommand>(), "Selecciona una opción", new { @id="ddlCommand", @class = "form-control commandSelect" })
-                                                </div>
-                                            </div>                                            
+
                                         </div>
 
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end: Form Wizard Step 4-->
-                            <!--begin: Form Wizard Step 5-->
-                            <div class="kt-wizard-v3__content" data-ktwizard-type="step-content">
-                                <div class="kt-heading kt-heading--md">Resúmen</div>
-                                <div class="kt-form__section kt-form__section--first">
-                                    <div class="kt-wizard-v3__review">
-                                        <div>
-                                            <div class="text-info">
-                                                <strong>Para el tipo de Red que mejor se adapta como solución, seleccionaste:</strong>
+                                        <div class="col-6">
+                                            <div class="kt-portlet">
+
+                                                <div class="kt-portlet__body">
+                                                    <div class="form-group form-group-last">
+                                                        <div class="alert alert-secondary" role="alert">
+                                                          
+                                                            <div class="alert-text">
+                                                                Arraste aqui los cables que va a utilizar y el orden correcto de lo mismos
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div  class="plugBackground" id="sortable" ondrop="dropIn(event)" ondragover="allowDropIn(event)">
+                                                        @foreach (var item in Model.Cable.Where(f => f.IsSelected))
+                                                        {
+                                                            <img id="cable/@(item.Id).png" class="img-fluid" src="~/images/cable/@(item.Id).png" draggable="true" ondragstart="dragOut(event)" />
+
+                                                        }
+                                                    </div>
+
+                                                  
+                                                </div>
+
+
                                             </div>
-                                            <div class="col-sm-6">
-                                                <input id="txtNetType" class="form-control" disabled />
-                                            </div>
-                                            <br />
-                                        </div>
-                                        <div>
-                                            <div class="text-info">
-                                                <strong>Para el tipo de Conexión de Red que permitirá una óptima comunicación, seleccionaste:</strong>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input id="txtConectionType" class="form-control" disabled />
-                                            </div>
-                                            <br />
-                                        </div>
-                                        <div>
-                                            <div class="text-info">
-                                                <strong>Para comprobar la correcta comunicación entre dispositivos, seleccionaste:</strong>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input id="txtCommand" class="form-control" disabled />
-                                            </div>
-                                            <br />
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!--end: Form Wizard Step 5-->
-                            <!--begin: Form Actions -->
-                            <div class="kt-form__actions">
-                                <button class="btn btn-brand btn-pill btn-elevate col-sm-3" data-ktwizard-type="action-prev">
-                                    Volver
-                                </button>
-                                <button id="btnEnd" class="btn btn-success btn-brand btn-pill btn-elevate col-sm-3" onclick="valid();" data-ktwizard-type="action-submit">
-                                    Finalizar
-                                </button>
-                                <button class="btn btn-brand btn-pill btn-elevate col-sm-3" data-ktwizard-type="action-next">
-                                    Siguiente
-                                </button>
-                            </div>
-                            <!--end: Form Actions -->
-                        </form>
-                        <!--end: Form Wizard Form-->
                     </div>
+                    <!--end: Form Wizard Step 3-->
+                    <!--begin: Form Wizard Step 4-->
+                    <div class="kt-wizard-v3__content" data-ktwizard-type="step-content">
+                        <div class="kt-heading kt-heading--md">Comandos</div>
+                        <div class="kt-form__section kt-form__section--first">
+                            <div class="kt-wizard-v3__form">
+                                <div>
+                                    <div class="text-info">
+                                        <strong>Selecciona el ó los comandos que utilizarías para verificar si la conexión entre dispositivos es exitosa.</strong>
+                                    </div>
+                                    <div class="commandBackground col-sm-12">
+                                        <div class="col-sm-4">
+                                            @Html.DropDownListFor(m => m.ConnectionTypeOption, Html.GetEnumSelectList<eCommand>(), "Selecciona una opción", new { @id = "ddlCommand", @class = "form-control commandSelect" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--end: Form Wizard Step 4-->
+                    <!--begin: Form Wizard Step 5-->
+                    <div class="kt-wizard-v3__content" data-ktwizard-type="step-content">
+                        <div class="kt-heading kt-heading--md">Resúmen</div>
+                        <div class="kt-form__section kt-form__section--first">
+                            <div class="kt-wizard-v3__review">
+                                <div>
+                                    <div class="text-info">
+                                        <strong>Para el tipo de Red que mejor se adapta como solución, seleccionaste:</strong>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input id="txtNetType" class="form-control" disabled />
+                                    </div>
+                                    <br />
+                                </div>
+                                <div>
+                                    <div class="text-info">
+                                        <strong>Para el tipo de Conexión de Red que permitirá una óptima comunicación, seleccionaste:</strong>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input id="txtConectionType" class="form-control" disabled />
+                                    </div>
+                                    <br />
+                                </div>
+                                <div>
+                                    <div class="text-info">
+                                        <strong>Para comprobar la correcta comunicación entre dispositivos, seleccionaste:</strong>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input id="txtCommand" class="form-control" disabled />
+                                    </div>
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end: Form Wizard Step 5-->
+                    <!--begin: Form Actions -->
+                    <div class="kt-form__actions">
+                        <button class="btn btn-brand btn-pill btn-elevate col-sm-3" data-ktwizard-type="action-prev">
+                            Volver
+                        </button>
+                        <button id="btnEnd" class="btn btn-success btn-brand btn-pill btn-elevate col-sm-3" onclick="valid();" data-ktwizard-type="action-submit">
+                            Finalizar
+                        </button>
+                        <button class="btn btn-brand btn-pill btn-elevate col-sm-3" data-ktwizard-type="action-next">
+                            Siguiente
+                        </button>
+                    </div>
+                    <!--end: Form Actions -->
+                    </form>
+                    <!--end: Form Wizard Form-->
                 </div>
             </div>
         </div>
     </div>
-    <!-- end:: Content -->
+</div>
+<!-- end:: Content -->
 </div>
 @section Scripts
 {
@@ -272,8 +326,8 @@
 
             $("#ddlCommand").change(function () {
                 $("#txtCommand").val($("#ddlCommand :selected").text());
-            });            
-            
+            });
+
             countdown("@Model.TimeLimit.ToString("yyyy-MM-ddTHH:mm:ss")");
         })
 
@@ -321,7 +375,7 @@
                 var url = "/ChallengeResult/Start";
                 window.location.href = url;
                 return false;
-            }    
+            }
 
             if ($("#ddlNetType :selected").val() != 1) {
                 alert("El tipo de red que has seleccionado no podría solucionar la situación, piensa y elige nuevamente !!");
@@ -346,7 +400,7 @@
                 window.location.href = url;
             }
 
-            return result;      
+            return result;
         }
 
     </script>

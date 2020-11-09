@@ -11,7 +11,7 @@ namespace TP3.Core.Data.Challenge
         {
             Elements = new List<ChallengeElementData>();
             Cables = new List<ChallenteCableData>();
-            Commands = new List<SelectableData>();
+            Commands = new List<CommandCableData>();
         }
         public long Id { get; set; }
         [Required(ErrorMessageResourceType = typeof(ValidationMessages), ErrorMessageResourceName = "Requeried")]
@@ -39,8 +39,8 @@ namespace TP3.Core.Data.Challenge
         [Display(Name = "Orden")]
         public int? Order { get; set; }
         [Display(Name = "Comandos")]
-        public List<SelectableData> Commands { get; set; }
+        public List<CommandCableData> Commands { get; set; }
         [Display(Name = "Commando")]
-        public long? Command { get; set; }
+        public int? CommandId { get; set; }
     }
 }

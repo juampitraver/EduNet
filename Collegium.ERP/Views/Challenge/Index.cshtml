@@ -30,7 +30,7 @@
 
     <div class="kt-portlet__body">
         <!--begin: Datatable -->
-        <table class="table table-striped- table-bordered table-hover table-checkable" id="clientTable">
+        <table class="table table-striped- table-bordered table-hover  table-checkable" id="clientTable">
             <thead>
                 <tr>
                     <th>@Html.DisplayNameFor(m => m.Title)</th>
@@ -107,7 +107,8 @@
                                     render: function (td, cellData, rowData, row, col) {
                                        var edit = "<a class='btn btn-sm btn-clean btn-icon btn-icon-md' href='@Url.Action("Edit")/"+ rowData.Id + "' title='Editar'><i class='fa fa-edit'></i></a>";
                                         var del = '<a class="btn btn-sm btn-clean btn-icon btn-icon-md" onclick="confirmDelete(this,' + rowData.Id + ')"  title="Eliminar"><i class="fa fa-trash"></i></a>';
-                                        return edit + del;
+                                        var result = "<a class='btn btn-sm btn-clean btn-icon btn-icon-md' href='@Url.Action("Index", "ChallengeResult")/' title='Editar'><i class='fa fa-chart-bar'></i></a>";
+                                        return edit + del + result;
                                 }
 
                         }

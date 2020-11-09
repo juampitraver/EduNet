@@ -23,8 +23,8 @@ namespace TP3.Domain.Entities
         [Description("Marrón")]
         BROWN = 9,
         [Description("Rojo")]
-        RED = 9,
+        RED = 10,
         [Description("Negro")]
-        BLACK = 10
+        BLACK = 11
     }
 }
